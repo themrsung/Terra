@@ -4,6 +4,7 @@ import oasis.artemis.collection.list.TArray;
 import oasis.artemis.collection.list.TList;
 
 import javax.annotation.Nonnull;
+import java.io.Serializable;
 
 /**
  * <h2>TriLocation</h2>
@@ -18,7 +19,7 @@ import javax.annotation.Nonnull;
 public record TriLocation(
         @Nonnull Location center,
         @Nonnull Volume volume
-) {
+) implements Serializable {
     /**
      * Gets a new builder instance.
      *

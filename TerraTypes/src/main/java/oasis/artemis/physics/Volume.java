@@ -2,6 +2,7 @@ package oasis.artemis.physics;
 
 import javax.annotation.Nonnegative;
 import javax.annotation.Nonnull;
+import java.io.Serializable;
 
 /**
  * <h2>Volume</h2>
@@ -20,7 +21,7 @@ public record Volume(
         @Nonnegative double x,
         @Nonnegative double y,
         @Nonnegative double z
-) {
+) implements Serializable {
     /**
      * Default volume. All fields are set to zero.
      */

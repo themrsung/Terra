@@ -1,9 +1,11 @@
 package oasis.artemis.physics;
 
+import oasis.artemis.exception.physics.DifferentWorldException;
 import oasis.artemis.world.World;
 
 import javax.annotation.Nonnegative;
 import javax.annotation.Nonnull;
+import java.io.Serializable;
 
 /**
  * <h2>Location</h2>
@@ -30,7 +32,7 @@ public record Location(
         double z,
         double yaw, // -180 <= yaw <= 180
         double pitch // -180 <= pitch <= 180
-) {
+) implements Serializable {
     /**
      * Constructor which ignores yaw and pitch.
      *
@@ -205,8 +207,8 @@ public record Location(
      * @throws IllegalArgumentException When the worlds are different
      */
     @Nonnull
-    public Location plusLocation(@Nonnull Location other) throws IllegalArgumentException {
-        if (!world.equals(other.world)) throw new IllegalArgumentException();
+    public Location plusLocation(@Nonnull Location other) throws DifferentWorldException {
+        if (!world.equals(other.world)) throw new DifferentWorldException(world, other.world);
 
         return toBuilder()
                 .x(x + other.x)
@@ -241,9 +243,11 @@ public record Location(
      *
      * @param other Other location
      * @return Distance in meters
+     * @throws DifferentWorldException When the worlds are different
      */
     @Nonnegative
-    public double getDistanceTo(@Nonnull Location other) {
+    public double getDistanceTo(@Nonnull Location other) throws DifferentWorldException {
+        if (!world.equals(other.world)) throw new DifferentWorldException(world, other.world);
         return Math.sqrt(Math.abs(x - other.x) + Math.abs(y - other.y) + Math.abs(z - other.z));
     }
 
@@ -253,9 +257,11 @@ public record Location(
      *
      * @param other Other location
      * @return Distance in meters
+     * @throws DifferentWorldException When the worlds are different
      */
     @Nonnegative
-    public double getDistanceToIgnoreY(@Nonnull Location other) {
+    public double getDistanceToIgnoreY(@Nonnull Location other) throws DifferentWorldException {
+        if (!world.equals(other.world)) throw new DifferentWorldException(world, other.world);
         return Math.sqrt(Math.abs(x - other.x) + Math.abs(y - other.y));
     }
 

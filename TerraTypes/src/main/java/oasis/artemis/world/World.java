@@ -8,6 +8,7 @@ import oasis.artemis.util.Unique;
 
 import javax.annotation.Nonnull;
 import javax.validation.constraints.Positive;
+import java.io.Serializable;
 
 /**
  * <h2>World</h2>
@@ -16,7 +17,7 @@ import javax.validation.constraints.Positive;
  * There can be multiple worlds in one game state.
  * </p>
  */
-public interface World extends Unique, Tickable {
+public interface World extends Unique, Tickable, Serializable {
     //
     // Identification
     //

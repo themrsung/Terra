@@ -7,6 +7,7 @@ import javax.annotation.Nonnegative;
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 import java.awt.*;
+import java.io.Serializable;
 import java.util.function.Function;
 import java.util.regex.PatternSyntaxException;
 import java.util.stream.IntStream;
@@ -23,7 +24,7 @@ import java.util.stream.Stream;
  * All Vortex types use {@link TString} instead of {@link String}.
  * </p>
  */
-public interface TString {
+public interface TString extends Serializable {
     /**
      * Gets a blank text builder.
      *

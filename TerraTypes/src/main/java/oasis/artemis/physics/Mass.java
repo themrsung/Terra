@@ -2,6 +2,7 @@ package oasis.artemis.physics;
 
 import javax.annotation.Nonnegative;
 import javax.annotation.Nonnull;
+import java.io.Serializable;
 
 /**
  * <h2>Mass</h2>
@@ -13,7 +14,7 @@ import javax.annotation.Nonnull;
 public record Mass(
         @Nonnegative double value,
         @Nonnull Unit unit
-) {
+) implements Serializable {
     /**
      * Gets the value of this mass denoted in grams.
      *

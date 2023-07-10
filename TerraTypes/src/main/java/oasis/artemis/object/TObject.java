@@ -5,6 +5,7 @@ import oasis.artemis.util.Unique;
 
 import javax.annotation.Nonnull;
 import javax.validation.constraints.Positive;
+import java.io.Serializable;
 
 /**
  * <h2>TObject</h2>
@@ -13,7 +14,7 @@ import javax.validation.constraints.Positive;
  * TObjects are simply referred to as objects outside of this file.
  * </p>
  */
-public interface TObject extends Unique {
+public interface TObject extends Unique, Serializable {
     //
     // Physics
     //

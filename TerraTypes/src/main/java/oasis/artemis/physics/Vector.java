@@ -2,6 +2,7 @@ package oasis.artemis.physics;
 
 import javax.annotation.Nonnegative;
 import javax.annotation.Nonnull;
+import java.io.Serializable;
 
 /**
  * <h2>Vector</h2>
@@ -21,7 +22,7 @@ public record Vector(
         double x,
         double y,
         double z
-) {
+) implements Serializable {
     /**
      * Creates a new vector with default values {@code 0, 0, 0}.
      */
