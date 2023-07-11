@@ -1,6 +1,7 @@
 package oasis.artemis.task.debug;
 
 import oasis.artemis.TerraEngine;
+import oasis.artemis.object.RealisticObject;
 import oasis.artemis.physics.Location;
 import oasis.artemis.task.Task;
 import org.joda.time.Duration;
@@ -16,7 +17,9 @@ public class DebugTask implements Task {
         TerraEngine.getState().getWorlds().forEach(w -> {
             w.getObjects().forEach(o -> {
                 final Location loc = o.getLocation();
-                System.out.println("Location of object is " + loc.x() + " " + loc.y() + " " + loc.z());
+                if (o instanceof RealisticObject) {
+                    System.out.println("Location of object " + o.getUniqueId().toString().substring(0, 5) + " is " + loc.x() + " " + loc.y() + " " + loc.z());
+                }
             });
         });
     }
@@ -24,12 +27,12 @@ public class DebugTask implements Task {
     @Nonnull
     @Override
     public Duration getDelay() {
-        return ZERO;
+        return Duration.ZERO;
     }
 
     @Nonnull
     @Override
     public Duration getInterval() {
-        return ZERO;
+        return new Duration(1000);
     }
 }

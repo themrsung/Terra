@@ -29,12 +29,12 @@ public final class GravityTask implements Task {
     @Nonnull
     @Override
     public Duration getDelay() {
-        return ZERO;
+        return Duration.ZERO;
     }
 
     @Nonnull
     @Override
     public Duration getInterval() {
-        return ZERO;
+        return Duration.ZERO;
     }
 }

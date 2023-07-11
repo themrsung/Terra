@@ -25,7 +25,7 @@ public class Scheduler {
         // Lower values will offer more real-time processing, but will also worsen performance.
         //
 
-        this(new Duration(20));
+        this(new Duration(15));
     }
 
     /**

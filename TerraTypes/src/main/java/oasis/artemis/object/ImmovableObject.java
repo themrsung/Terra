@@ -81,6 +81,9 @@ public class ImmovableObject extends AbstractObject {
     public void setMass(@Nonnull Mass mass) {}
 
     @Override
+    public void setLocation(@Nonnull Location location) {}
+
+    @Override
     public double getDragCoefficient() {
         return DEFAULT_DRAG_COEFFICIENT;
     }

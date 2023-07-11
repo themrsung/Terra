@@ -20,13 +20,29 @@ public final class MovementTask implements Task {
     public void execute(@Nonnull Duration delta) {
         TerraEngine.getState().getWorlds().forEach(world -> {
             world.getObjects().forEach(object -> {
-                final double terminalVelocity = Physics.terminalVelocity(object, Face.NEGATIVE_Y);
-                Vector acceleration = object.getVector().modifyAll(0.001).modifyX(delta.getMillis());
+                Vector acceleration = object.getVector().modifyAll(0.001).modifyAll(delta.getMillis());
 
-                if (acceleration.getVelocity() > terminalVelocity) {
-                    final double adjustment = acceleration.getVelocity() / terminalVelocity;
-                    acceleration = acceleration.modifyAll(adjustment);
+                // X terminal velocity
+                final double xVelocity = Math.abs(acceleration.x());
+                final double terminalX = Physics.terminalVelocity(object, Face.POSITIVE_X);
+                if (xVelocity > terminalX) {
+                    acceleration = acceleration.setX(xVelocity > 0 ? terminalX : -terminalX);
                 }
+
+                // Y terminal velocity
+                final double yVelocity = Math.abs(acceleration.y());
+                final double terminalY = Physics.terminalVelocity(object, Face.POSITIVE_Y);
+                if (yVelocity > terminalY) {
+                    acceleration = acceleration.setY(yVelocity > 0 ? terminalY : -terminalY);
+                }
+
+                // Z terminal velocity
+                final double zVelocity = Math.abs(acceleration.z());
+                final double terminalZ = Physics.terminalVelocity(object, Face.POSITIVE_Z);
+                if (zVelocity > terminalZ) {
+                    acceleration = acceleration.setZ(zVelocity > 0 ? terminalZ : -terminalZ);
+                }
+
 
                 object.setLocation(object.getLocation().plusVector(acceleration));
             });
@@ -37,12 +53,12 @@ public final class MovementTask implements Task {
     @Nonnull
     @Override
     public Duration getDelay() {
-        return ZERO;
+        return Duration.ZERO;
     }
 
     @Nonnull
     @Override
     public Duration getInterval() {
-        return ZERO;
+        return Duration.ZERO;
     }
 }

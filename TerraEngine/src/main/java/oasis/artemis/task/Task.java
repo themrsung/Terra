@@ -35,7 +35,7 @@ public interface Task {
      * after the specified delay has passed.
      * </p>
      * <p>
-     * When this is set to {@link Task#ZERO},
+     * When this is set to {@link Duration#ZERO},
      * it guarantees that this task will be called every loop.
      * </p>
      *
@@ -43,6 +43,4 @@ public interface Task {
      */
     @Nullable
     Duration getInterval();
-
-    Duration ZERO = new Duration(0);
 }

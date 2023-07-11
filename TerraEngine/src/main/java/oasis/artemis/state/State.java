@@ -43,6 +43,30 @@ public class State {
         worlds.remove(world);
     }
 
+    //
+    // IO
+    //
+
+    /**
+     * Saves this state to local files.
+     * This will fail silently if an exception occurs.
+     */
+    public void save() {
+
+    }
+
+    /**
+     * Loads this state to local files.
+     * This will fail silently if an exception occurs.
+     */
+    public void load() {
+
+    }
+
+    //
+    // Variables
+    //
+
     @Nonnull
     private final TList<World> worlds;
 }

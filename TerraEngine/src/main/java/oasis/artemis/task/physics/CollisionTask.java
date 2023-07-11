@@ -30,17 +30,22 @@ public final class CollisionTask implements Task {
                 // Loop thorough every other object which obeys physics
                 world.getObjects().filter(TObject::obeysPhysics).filter(o -> !o.equals(o1)).forEach(o2 -> {
                     // Initialize collisions list
-                    final TSet<TObject> collisions = collidingObjects.getOrDefaultPointer(o1, new THashSet<>());
+                    final TSet<TObject> outboundCollisions = collidingObjects.getOrDefaultPointer(o1, new THashSet<>());
+                    final TSet<TObject> inboundCollisions = collidingObjects.getOrDefaultPointer(o2, new THashSet<>());
 
                     // If objects overlap and have not already collided
-                    if (o1.overlaps(o2) && !collisions.contains(o2)) {
-                        // Add object to collided objects
-                        collisions.add(o2);
+                    if (o1.overlaps(o2)) {
+                        if (!outboundCollisions.contains(o2) && !inboundCollisions.contains(o1)) {
+                            // Add object to collided objects
+                            outboundCollisions.add(o2);
+                            inboundCollisions.add(o1);
 
-                        // Call collision event
-                        TerraEngine.getEventManager().callEvent(new CollisionEvent(o1, o2));
+                            // Call collision event
+                            TerraEngine.getEventManager().callEvent(new CollisionEvent(o1, o2));
+                        }
                     } else {
-                        collisions.remove(o2);
+                        outboundCollisions.remove(o2);
+                        inboundCollisions.remove(o1);
                     }
                 });
             });
@@ -54,12 +59,12 @@ public final class CollisionTask implements Task {
     @Nonnull
     @Override
     public Duration getDelay() {
-        return ZERO;
+        return Duration.ZERO;
     }
 
     @Nonnull
     @Override
     public Duration getInterval() {
-        return ZERO;
+        return Duration.ZERO;
     }
 }

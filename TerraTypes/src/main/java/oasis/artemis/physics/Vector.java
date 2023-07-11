@@ -116,6 +116,17 @@ public record Vector(
     }
 
     /**
+     * Adds another vector to this vector.
+     *
+     * @param other Other vector
+     * @return Resulting vector
+     */
+    @Nonnull
+    public Vector plus(@Nonnull Vector other) {
+        return plusX(other.x).plusY(other.y).plusZ(other.z);
+    }
+
+    /**
      * Modifies the X value of this vector.
      *
      * @param modifier Modifier
