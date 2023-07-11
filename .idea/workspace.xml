@@ -4,8 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="128b8473-fae6-4bac-a232-81cbfd8e9124" name="Changes" comment="Added README">
-      <change beforePath="$PROJECT_DIR$/TerraTypes/src/main/java/oasis/artemis/physics/TriLocation.java" beforeDir="false" afterPath="$PROJECT_DIR$/TerraTypes/src/main/java/oasis/artemis/physics/TriLocation.java" afterDir="false" />
+    <list default="true" id="128b8473-fae6-4bac-a232-81cbfd8e9124" name="Changes" comment="Reformat code &amp; Fixed TriLocation.Builder to throw IAE">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TerraTypes/src/main/java/oasis/artemis/physics/Physics.java" beforeDir="false" afterPath="$PROJECT_DIR$/TerraTypes/src/main/java/oasis/artemis/physics/Physics.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TerraTypes/src/main/java/oasis/artemis/string/TString.java" beforeDir="false" afterPath="$PROJECT_DIR$/TerraTypes/src/main/java/oasis/artemis/string/TString.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TerraTypes/src/main/java/oasis/artemis/world/World.java" beforeDir="false" afterPath="$PROJECT_DIR$/TerraTypes/src/main/java/oasis/artemis/world/World.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -182,7 +185,15 @@
       <option name="project" value="LOCAL" />
       <updated>1689072324765</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="Reformat code &amp; Fixed TriLocation.Builder to throw IAE">
+      <option name="closed" value="true" />
+      <created>1689073264103</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1689073264103</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -195,6 +206,7 @@
     <MESSAGE value="Saving progress" />
     <MESSAGE value="Alright everything sort of works." />
     <MESSAGE value="Added README" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added README" />
+    <MESSAGE value="Reformat code &amp; Fixed TriLocation.Builder to throw IAE" />
+    <option name="LAST_COMMIT_MESSAGE" value="Reformat code &amp; Fixed TriLocation.Builder to throw IAE" />
   </component>
 </project>

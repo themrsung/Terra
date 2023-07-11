@@ -21,7 +21,7 @@ import java.util.stream.Stream;
  * and all utility methods delegate to the nested String.
  * </p>
  * <p>
- * All Vortex types use {@link TString} instead of {@link String}.
+ * All Terra types use {@link TString} instead of {@link String}.
  * </p>
  */
 public interface TString extends Serializable {

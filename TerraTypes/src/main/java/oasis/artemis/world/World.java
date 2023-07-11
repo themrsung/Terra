@@ -114,7 +114,7 @@ public interface World extends Unique, Tickable, Serializable {
     /**
      * Sets the air density of this world, denoted in kilograms per cubic meter.
      * Density cannot be zero, as it will break physics calculations.
-     * For an air-less, world set this to {@link Double#MIN_VALUE}.
+     * For an air-less world, set this to {@link Double#MIN_VALUE}.
      *
      * @param density Density in kg/m3
      */

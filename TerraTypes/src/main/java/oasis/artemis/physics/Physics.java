@@ -65,7 +65,7 @@ public interface Physics {
      * @return Kinetic energy, denoted in Joules
      */
     static double kineticEnergy(@Nonnull TObject object) {
-        return 0.5 * object.getMassKilograms() * Math.pow(object.getVector().getMagnitude(), 2);
+        return 0.5 * object.getMassKilograms() * Math.pow(object.getVelocity(), 2);
     }
 
     /**
