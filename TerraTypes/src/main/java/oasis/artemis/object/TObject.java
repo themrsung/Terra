@@ -56,7 +56,7 @@ public interface TObject extends Unique, Serializable {
      * @return Velocity
      */
     @Nonnegative
-    default double getVelocity() {return getVector().getVelocity();}
+    default double getVelocity() {return getVector().getMagnitude();}
 
     /**
      * Gets the mass of this object.

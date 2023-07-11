@@ -24,25 +24,24 @@ public final class MovementTask implements Task {
 
                 // X terminal velocity
                 final double xVelocity = Math.abs(acceleration.x());
-                final double terminalX = Physics.terminalVelocity(object, Face.POSITIVE_X);
+                final double terminalX = Physics.terminalVelocity(object, Vector.FRONT);
                 if (xVelocity > terminalX) {
                     acceleration = acceleration.setX(xVelocity > 0 ? terminalX : -terminalX);
                 }
 
                 // Y terminal velocity
                 final double yVelocity = Math.abs(acceleration.y());
-                final double terminalY = Physics.terminalVelocity(object, Face.POSITIVE_Y);
+                final double terminalY = Physics.terminalVelocity(object, Vector.UP);
                 if (yVelocity > terminalY) {
                     acceleration = acceleration.setY(yVelocity > 0 ? terminalY : -terminalY);
                 }
 
                 // Z terminal velocity
                 final double zVelocity = Math.abs(acceleration.z());
-                final double terminalZ = Physics.terminalVelocity(object, Face.POSITIVE_Z);
+                final double terminalZ = Physics.terminalVelocity(object, Vector.RIGHT);
                 if (zVelocity > terminalZ) {
                     acceleration = acceleration.setZ(zVelocity > 0 ? terminalZ : -terminalZ);
                 }
-
 
                 object.setLocation(object.getLocation().plusVector(acceleration));
             });

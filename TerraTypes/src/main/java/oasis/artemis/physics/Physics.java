@@ -34,11 +34,11 @@ public interface Physics {
      * they will be assumed to be {@link Double#MIN_VALUE}.
      *
      * @param object Object to get terminal velocity of
-     * @param facing The direction in which to get the terminal velocity of
+     * @param direction The direction in which to get the terminal velocity of
      * @return Terminal velocity of object in given world
      */
     @Nonnegative
-    static double terminalVelocity(@Nonnull TObject object, @Nonnull Face facing) {
+    static double terminalVelocity(@Nonnull TObject object, @Nonnull Vector direction) {
         final World world = object.getWorld();
         double fluidDensity = Math.max(world.getAirDensity(), Double.MIN_VALUE);
 
@@ -51,7 +51,7 @@ public interface Physics {
         }
 
         final double mass = object.getMassKilograms();
-        final double crossSection = Math.max(object.getVolume().getCrossSection(facing), Double.MIN_VALUE);
+        final double crossSection = Math.max(object.getVolume().getCrossSection(direction), Double.MIN_VALUE);
         final double dragCoefficient = Math.max(object.getDragCoefficient(), Double.MIN_VALUE);
         final double gravity = world.getGravity();
 
@@ -65,7 +65,7 @@ public interface Physics {
      * @return Kinetic energy, denoted in Joules
      */
     static double kineticEnergy(@Nonnull TObject object) {
-        return 0.5 * object.getMassKilograms() * Math.pow(object.getVector().getVelocity(), 2);
+        return 0.5 * object.getMassKilograms() * Math.pow(object.getVector().getMagnitude(), 2);
     }
 
     /**

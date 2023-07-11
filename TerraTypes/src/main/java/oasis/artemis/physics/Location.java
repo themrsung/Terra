@@ -11,8 +11,9 @@ import java.io.Serializable;
  * <h2>Location</h2>
  * <p>
  * Represents a point in a three-dimensional plane.
- * Since yaw and pitch represent the rotation of an object,
- * their getters are designed to convert them to within the acceptable range.
+ * Since yaw, pitch and roll represent the rotation of an object,
+ * their getters are designed to convert them to within the acceptable range.</p>
+ *
  * </p>
  * <p>
  * <b>Every coordinate is denoted in meters.</b>
@@ -22,8 +23,9 @@ import java.io.Serializable;
  * @param x     X coordinate of this location (scalar of width)
  * @param y     Y coordinate of this location (scalar of height)
  * @param z     Z coordinate of this location (scalar of depth)
- * @param yaw   Yaw (horizontal scalar)
- * @param pitch Pitch (vertical scalar)
+ * @param yaw   Yaw (degree on the axis of Y)
+ * @param pitch Pitch (degree on the axis of Z)
+ * @param roll Roll (degree on the axis of X)
  */
 public record Location(
         @Nonnull World world,
@@ -31,7 +33,8 @@ public record Location(
         double y,
         double z,
         double yaw, // -180 <= yaw <= 180
-        double pitch // -180 <= pitch <= 180
+        double pitch, // -180 <= pitch <= 180
+        double roll // -180 <= roll <= 180
 ) implements Serializable {
     /**
      * Constructor which ignores yaw and pitch.
@@ -42,7 +45,7 @@ public record Location(
      * @param z     Z coordinate of this location
      */
     public Location(@Nonnull World world, double x, double y, double z) {
-        this(world, x, y, z, 0, 0);
+        this(world, x, y, z, 0, 0, 0);
     }
 
     /**
@@ -67,7 +70,7 @@ public record Location(
      */
     @Override
     public double yaw() {
-        if (yaw > 180 || yaw < 180) {
+        if (yaw > 180 || yaw < -180) {
             return ((yaw + 180) % 360) - 180;
         }
 
@@ -81,10 +84,22 @@ public record Location(
      */
     @Override
     public double pitch() {
-        if (pitch > 180 || pitch < 180) {
+        if (pitch > 180 || pitch < -180) {
             return ((pitch + 180) % 360) - 180;
         }
         return pitch;
+    }
+
+    /**
+     * Converts the roll to fit within the accepted range.
+     * @return Roll
+     */
+    @Override
+    public double roll() {
+        if (roll > 180 || roll < -180) {
+            return ((roll + 180) % 360) - 180;
+        }
+        return roll;
     }
 
     // Modifiers
@@ -200,6 +215,46 @@ public record Location(
     }
 
     /**
+     * Changes the roll of this location.
+     * @param roll Roll
+     * @return Resulting location
+     */
+    @Nonnull
+    public Location setRoll(double roll) {
+        return toBuilder().roll(roll).build();
+    }
+
+    /**
+     * Adds delta to the yaw of this location.
+     * @param delta Delta to add
+     * @return Resulting location
+     */
+    @Nonnull
+    public Location addYaw(double delta) {
+        return toBuilder().yaw(yaw + delta).build();
+    }
+
+    /**
+     * Adds delta to the pitch of this location.
+     * @param delta Delta to add
+     * @return Resulting location
+     */
+    @Nonnull
+    public Location addPitch(double delta) {
+        return toBuilder().pitch(pitch + delta).build();
+    }
+
+    /**
+     * Adds delta to the roll of this location.
+     * @param delta Delta to add
+     * @return Resulting location
+     */
+    @Nonnull
+    public Location addRoll(double delta) {
+        return toBuilder().roll(roll + delta).build();
+    }
+
+    /**
      * Adds another location to this location.
      *
      * @param other Location to add
@@ -216,6 +271,7 @@ public record Location(
                 .z(z + other.z)
                 .yaw(yaw + other.yaw)
                 .pitch(pitch + other.pitch)
+                .roll(roll + other.roll)
                 .build();
     }
 
@@ -273,7 +329,7 @@ public record Location(
     public Builder toBuilder() {return new Builder(this);}
 
     private Location(@Nonnull Builder builder) {
-        this(builder.world, builder.x, builder.y, builder.z, builder.yaw, builder.pitch);
+        this(builder.world, builder.x, builder.y, builder.z, builder.yaw, builder.pitch, builder.roll);
     }
 
     /**
@@ -307,6 +363,7 @@ public record Location(
         private double z;
         private double yaw;
         private double pitch;
+        private double roll;
 
         @Nonnull
         public Builder world(@Nonnull World world) {
@@ -352,6 +409,12 @@ public record Location(
             return this;
         }
 
+        @Nonnull
+        public Builder roll(double roll) {
+            this.roll = roll;
+            return this;
+        }
+
         /**
          * Finishes the building sequence and builds the {@link Location}.
          *
@@ -361,7 +424,14 @@ public record Location(
         @Nonnull
         @SuppressWarnings("ConstantConditions")
         public Location build() throws IllegalArgumentException {
+            // Check for null world
             if (world == null) throw new IllegalArgumentException();
+
+            // Correct yaw, pitch, and roll
+            if (pitch > 180 || pitch < -180) pitch = ((pitch + 180) % 360) - 180;
+            if (yaw > 180 || yaw < -180) yaw = ((yaw + 180) % 360) - 180;
+            if (roll > 180 || yaw < -180) roll = ((roll + 180) % 360) - 180;
+
             return new Location(this);
         }
     }

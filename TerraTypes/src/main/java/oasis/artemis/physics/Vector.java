@@ -1,5 +1,7 @@
 package oasis.artemis.physics;
 
+import oasis.artemis.math.TMath;
+
 import javax.annotation.Nonnegative;
 import javax.annotation.Nonnull;
 import java.io.Serializable;
@@ -31,6 +33,18 @@ public record Vector(
     }
 
     /**
+     * Represents a vector with no velocity. Every value is 0.
+     */
+    public static final Vector ZERO = new Vector();
+
+    public static final Vector UP = new Vector(0, 1, 0);
+    public static final Vector DOWN = new Vector(0, -1, 0);
+    public static final Vector FRONT = new Vector(1, 0, 0);
+    public static final Vector REAR = new Vector(-1, 0, 0);
+    public static final Vector RIGHT = new Vector(0, 0, 1);
+    public static final Vector LEFT = new Vector(0, 0, -1);
+
+    /**
      * Gets a new empty builder instance.
      *
      * @return Builder
@@ -40,13 +54,139 @@ public record Vector(
     }
 
     /**
-     * Gets the velocity of this vector.
+     * Gets the magnitude of this vector.
      *
-     * @return Velocity
+     * @return Magnitude
      */
     @Nonnegative
-    public double getVelocity() {
+    public double getMagnitude() {
         return Math.sqrt(Math.pow(x, 2) + Math.pow(y, 2) + Math.pow(z, 2));
+    }
+
+    /**
+     * Gets the diagonal magnitude between X and Y of this vector.
+     * @return Diagonal magnitude
+     */
+    @Nonnegative
+    public double getMagnitudeXY() {
+        return Math.sqrt(Math.pow(x, 2) + Math.pow(y, 2));
+    }
+
+    /**
+     * Gets the diagonal magnitude between X and Z of this vector.
+     * @return Diagonal magnitude
+     */
+    @Nonnegative
+    public double getMagnitudeXZ() {
+        return Math.sqrt(Math.pow(x, 2) + Math.pow(z, 2));
+    }
+
+    /**
+     * Gets the diagonal magnitude between Y and Z of this vector.
+     * @return Diagonal magnitude
+     */
+    @Nonnegative
+    public double getMagnitudeYZ() {
+        return Math.sqrt(Math.pow(y, 2) + Math.pow(z, 2));
+    }
+
+    /**
+     * Checks if this vector has a positive magnitude towards given facing.
+     * @param facing Facing to check
+     * @return {@code true} if this vector is facing given face
+     */
+    public boolean isFacing(@Nonnull Face facing) {
+        return switch (facing) {
+            case POSITIVE_X -> x > 0;
+            case POSITIVE_Y -> y > 0;
+            case POSITIVE_Z -> z > 0;
+            case NEGATIVE_X -> x < 0;
+            case NEGATIVE_Y -> y < 0;
+            case NEGATIVE_Z -> z < 0;
+        };
+    }
+
+    /**
+     * Checks if this vector has a positive magnitude towards all given facings.
+     * @param facings Facings to check
+     * @return {@code true} if this vector is facing all given faces
+     */
+    public boolean isFacingAll(@Nonnull Face... facings) {
+        for (Face f : facings) if (!isFacing(f)) return false;
+        return true;
+    }
+
+    /**
+     * Checks if this vector has a positive magnitude to at least one of the given facings.
+     * @param facings Facings to check
+     * @return {@code true} if this vector is facing at least one of the given faces
+     */
+    public boolean isFacingAtLeast(@Nonnull Face... facings) {
+        for (Face f : facings) if (isFacing(f)) return true;
+        return false;
+    }
+
+    /**
+     * Checks if this vector is only facing towards given facing.
+     * @param facing Facing to check
+     * @return {@code true} if this vector is facing given face, and all other magnitudes are zero
+     */
+    public boolean isFacingOnly(@Nonnull Face facing) {
+        return isFacing(facing) && switch (facing) {
+            case POSITIVE_X, NEGATIVE_X -> y == 0 && z == 0;
+            case POSITIVE_Y, NEGATIVE_Y -> x == 0 && z == 0;
+            case POSITIVE_Z, NEGATIVE_Z -> x == 0 && y == 0;
+        };
+    }
+
+    /**
+     * Checks if this all fields of this vector equal to zero.
+     * @return {@code true} if all fields are zero
+     */
+    public boolean isZero() {
+        return x == 0 && y == 0 && z == 0;
+    }
+
+    /**
+     * Gets the yaw of this vector. (degree on axis of Y)
+     * @return Yaw
+     */
+    public double getYaw() {
+        if (isFacing(Face.POSITIVE_X)) {
+            return TMath.itan(x / z);
+        } else if (isFacing(Face.NEGATIVE_X)) {
+            return TMath.addMagnitude(TMath.itan(-x / z), 90);
+        } else {
+            return isFacing(Face.POSITIVE_Z) ? 90 : (isFacing(Face.NEGATIVE_Z) ? -90 : 0);
+        }
+    }
+
+    /**
+     * Gets the pitch of this vector. (degree on axis of Z)
+     * @return Pitch
+     */
+    public double getPitch() {
+        if (isFacing(Face.POSITIVE_X)) {
+            return TMath.itan(x / y);
+        } else if (isFacing(Face.NEGATIVE_X)) {
+            return TMath.addMagnitude(TMath.itan(-x / y), 90);
+        } else {
+            return isFacing(Face.POSITIVE_Y) ? 90 : (isFacing(Face.NEGATIVE_Y) ? -90 : 0);
+        }
+    }
+
+    /**
+     * Gets the roll of this vector. (degree on axis of X)
+     * @return Roll
+     */
+    public double getRoll() {
+        if (isFacing(Face.POSITIVE_Z)) {
+            return TMath.itan(z / y);
+        } else if (isFacing(Face.NEGATIVE_Z)) {
+            return TMath.addMagnitude(TMath.itan(-z / y), 90);
+        } else {
+            return isFacing(Face.POSITIVE_Y) ? 90 : (isFacing(Face.NEGATIVE_Y) ? -90 : 0);
+        }
     }
 
     /**

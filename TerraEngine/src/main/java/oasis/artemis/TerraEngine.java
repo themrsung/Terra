@@ -4,10 +4,7 @@ import oasis.artemis.event.EventManager;
 import oasis.artemis.listener.physics.CollisionListener;
 import oasis.artemis.object.ImmovableObject;
 import oasis.artemis.object.RealisticObject;
-import oasis.artemis.physics.Location;
-import oasis.artemis.physics.Mass;
-import oasis.artemis.physics.Metric;
-import oasis.artemis.physics.Volume;
+import oasis.artemis.physics.*;
 import oasis.artemis.scheduler.Scheduler;
 import oasis.artemis.state.State;
 import oasis.artemis.string.Text;
@@ -15,6 +12,8 @@ import oasis.artemis.task.debug.DebugTask;
 import oasis.artemis.task.physics.CollisionTask;
 import oasis.artemis.task.physics.GravityTask;
 import oasis.artemis.task.physics.MovementTask;
+import oasis.artemis.task.physics.ResistanceTask;
+import oasis.artemis.util.ObjectPair;
 import oasis.artemis.world.RealisticWorld;
 import oasis.artemis.world.World;
 
@@ -105,6 +104,19 @@ public final class TerraEngine {
         ground.setVolume(new Volume(Double.MAX_VALUE, 20000, Double.MAX_VALUE));
         world.addObject(ground);
 
+        // Vector test
+        Vector test1 = new Vector(1, 1, 1);
+        Vector test2 = new Vector(1, -1, -1);
+        Vector test3 = new Vector(-1, 1, 1);
+        Vector test4 = new Vector(-1, -1, -1);
+        Vector test5 = new Vector(-1, 0, 1);
+
+        System.out.println("VECTOR TEST " + test1.getYaw());
+        System.out.println("VECTOR TEST " + test2.getYaw());
+        System.out.println("VECTOR TEST " + test3.getYaw());
+        System.out.println("VECTOR TEST " + test4.getYaw());
+        System.out.println("VECTOR TEST " + test5.getYaw());
+
         // Collision
 //        final RealisticObject o1 = new RealisticObject(UUID.randomUUID(), Location.builder().world(world).build());
 //        final RealisticObject o2 = new RealisticObject(UUID.randomUUID(), Location.builder().world(world).build());
@@ -134,6 +146,7 @@ public final class TerraEngine {
         scheduler.registerTask(new CollisionTask());
         scheduler.registerTask(new GravityTask());
         scheduler.registerTask(new MovementTask());
+        scheduler.registerTask(new ResistanceTask());
     }
 
     // Registers all listeners

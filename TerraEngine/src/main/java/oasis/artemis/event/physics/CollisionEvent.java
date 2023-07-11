@@ -3,6 +3,7 @@ package oasis.artemis.event.physics;
 import oasis.artemis.event.Cancellable;
 import oasis.artemis.event.Event;
 import oasis.artemis.object.TObject;
+import oasis.artemis.util.ObjectPair;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
@@ -19,8 +20,15 @@ public final class CollisionEvent extends Event implements Cancellable {
      * @param object2 Object 2
      */
     public CollisionEvent(@Nonnull TObject object1, @Nonnull TObject object2) {
-        this.object1 = object1;
-        this.object2 = object2;
+        this.pair = new ObjectPair(object1, object2);
+    }
+
+    /**
+     * Creates a new collision event.
+     * @param pair Pair of objects
+     */
+    public CollisionEvent(@Nonnull ObjectPair pair) {
+        this.pair = pair;
     }
 
     /**
@@ -33,8 +41,19 @@ public final class CollisionEvent extends Event implements Cancellable {
      */
     public CollisionEvent(@Nonnull TObject object1, @Nonnull TObject object2, @Nullable Event cause, @Nullable Runnable onHandled) {
         super(cause, onHandled);
-        this.object1 = object1;
-        this.object2 = object2;
+        this.pair = new ObjectPair(object1, object2);
+    }
+
+    /**
+     * Creates a new collision event.
+     *
+     * @param pair Pair of objects
+     * @param cause Cause of the event
+     * @param onHandled Runnable to execute post-handling
+     */
+    public CollisionEvent(@Nonnull ObjectPair pair, @Nullable Event cause, @Nullable Runnable onHandled) {
+        super(cause, onHandled);
+        this.pair = pair;
     }
 
     /**
@@ -44,7 +63,7 @@ public final class CollisionEvent extends Event implements Cancellable {
      */
     @Nonnull
     public TObject getObject1() {
-        return object1;
+        return pair.object1();
     }
 
     /**
@@ -54,7 +73,17 @@ public final class CollisionEvent extends Event implements Cancellable {
      */
     @Nonnull
     public TObject getObject2() {
-        return object2;
+        return pair.object2();
+    }
+
+    /**
+     * Gets the pair of objects involved in this collision.
+     *
+     * @return {@link ObjectPair}
+     */
+    @Nonnull
+    public ObjectPair getPair() {
+        return pair;
     }
 
     @Override
@@ -68,8 +97,6 @@ public final class CollisionEvent extends Event implements Cancellable {
     }
 
     @Nonnull
-    private final TObject object1;
-    @Nonnull
-    private final TObject object2;
+    private final ObjectPair pair;
     private boolean cancelled;
 }

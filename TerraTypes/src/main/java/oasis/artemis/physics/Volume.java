@@ -48,18 +48,67 @@ public record Volume(
     }
 
     /**
-     * Gets the cross-section of this volume.
+     * Gets the maximum possible cross-section of this volume.
+     * This will return 0 if the direction is zero.
+     * Assumes this is a cuboid unless overridden.
      *
-     * @param facing Facing to get
-     * @return Cross-section of given facing
+     * @param direction Direction to get cross-section of
+     * @return Cross-section of given direction
      */
     @Nonnegative
-    public double getCrossSection(@Nonnull Face facing) {
-        return switch (facing) {
-            case POSITIVE_X, NEGATIVE_X -> getCrossSectionYZ();
-            case POSITIVE_Y, NEGATIVE_Y -> getCrossSectionXZ();
-            case POSITIVE_Z, NEGATIVE_Z -> getCrossSectionXY();
-        };
+    public double getCrossSection(@Nonnull Vector direction) {
+        // When the cross-section is a square
+        if (direction.isFacingOnly(Face.POSITIVE_X) || direction.isFacingOnly(Face.NEGATIVE_X)) {
+            return y * z;
+        } else if (direction.isFacingOnly(Face.POSITIVE_Y) || direction.isFacingOnly(Face.NEGATIVE_Y)) {
+            return x * z;
+        } else if (direction.isFacingOnly(Face.POSITIVE_Z) || direction.isFacingOnly(Face.NEGATIVE_Z)) {
+            return x * y;
+        }
+
+        // Diagonals
+        final double diagonalYZ = Math.sqrt(Math.pow(y, 2) + Math.pow(z, 2));
+        final double diagonalXZ = Math.sqrt(Math.pow(x, 2) + Math.pow(z, 2));
+        final double diagonalXY = Math.sqrt(Math.pow(x, 2) + Math.pow(y, 2));
+
+        // When the cross-section is a rectangle
+        final double xWithYZDiagonal = x * diagonalYZ;
+        final double yWithXZDiagonal = y * diagonalXZ;
+        final double zWithXYDiagonal = z * diagonalXY;
+
+        if (direction.isFacingAtLeast(Face.POSITIVE_X, Face.NEGATIVE_X)) {
+            if ((direction.isFacingAtLeast(Face.POSITIVE_Y, Face.NEGATIVE_Y)) && direction.z() == 0) {
+                return yWithXZDiagonal;
+            } else if ((direction.isFacingAtLeast(Face.POSITIVE_Z, Face.NEGATIVE_Z)) && direction.y() == 0) {
+                return zWithXYDiagonal;
+            }
+        } else if (direction.isFacingAtLeast(Face.POSITIVE_Y, Face.NEGATIVE_Y)) {
+            if ((direction.isFacingAtLeast(Face.POSITIVE_X, Face.NEGATIVE_X)) && direction.z() == 0) {
+                return xWithYZDiagonal;
+            } else if ((direction.isFacingAtLeast(Face.POSITIVE_Z, Face.NEGATIVE_Z)) && direction.x() == 0) {
+                return zWithXYDiagonal;
+            }
+        } else if (direction.isFacingAtLeast(Face.POSITIVE_Z, Face.NEGATIVE_Z)) {
+            if ((direction.isFacingAtLeast(Face.POSITIVE_X, Face.NEGATIVE_X)) && direction.y() == 0) {
+                return xWithYZDiagonal;
+            } else if ((direction.isFacingAtLeast(Face.POSITIVE_Y, Face.NEGATIVE_Y)) && direction.x() == 0) {
+                return yWithXZDiagonal;
+            }
+        }
+
+        // When the cross-section is a hexagon.
+        final double halfDiagonalXY = diagonalXY / 2;
+        final double halfDiagonalXZ = diagonalXZ / 2;
+        final double halfDiagonalYZ = diagonalYZ / 2;
+
+        if (
+                direction.isFacingAll(Face.POSITIVE_X, Face.POSITIVE_Y, Face.POSITIVE_Z) ||
+                        direction.isFacingAll(Face.NEGATIVE_X, Face.NEGATIVE_Y, Face.NEGATIVE_Z)
+        ) {
+
+        }
+
+        return 0;
     }
 
     /**

@@ -2,6 +2,7 @@ package oasis.artemis.object;
 
 import oasis.artemis.physics.Location;
 import oasis.artemis.physics.Mass;
+import oasis.artemis.physics.Vector;
 import oasis.artemis.physics.Volume;
 
 import javax.annotation.Nonnull;
@@ -12,6 +13,8 @@ import java.util.UUID;
  * <p>
  * Immovable objects are used to represent grounds, buildings, etc.
  * Their mass is fixed to {@link Mass#INFINITE}, and {@link ImmovableObject#setLocation(Location)}
+ * will do nothing.
+ * Vectors are also fixed to {@link Vector#ZERO}, and {@link ImmovableObject#setVector(Vector)}
  * will do nothing.
  * </p>
  * <p>
@@ -77,11 +80,18 @@ public class ImmovableObject extends AbstractObject {
         return Mass.INFINITE;
     }
 
+    @Nonnull
+    @Override
+    public Vector getVector() { return Vector.ZERO; }
+
     @Override
     public void setMass(@Nonnull Mass mass) {}
 
     @Override
     public void setLocation(@Nonnull Location location) {}
+
+    @Override
+    public void setVector(@Nonnull Vector vector) {}
 
     @Override
     public double getDragCoefficient() {
