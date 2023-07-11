@@ -78,6 +78,11 @@ public interface World extends Unique, Tickable, Serializable {
     double DEFAULT_AIR_DENSITY = 1.204d;
 
     /**
+     * The default ground level.
+     */
+    double DEFAULT_GROUND_LEVEL = 0;
+
+    /**
      * Gets the gravity of this world, denoted in meters per second squared.
      *
      * @return Gravity
@@ -91,6 +96,13 @@ public interface World extends Unique, Tickable, Serializable {
      */
     @Positive
     double getAirDensity();
+
+    /**
+     * Gets the Y level of this world which is considered to be ground.
+     *
+     * @return Ground level
+     */
+    double getGroundLevel();
 
     /**
      * Sets the gravity of this world, denoted in meters per second squared.
@@ -107,4 +119,11 @@ public interface World extends Unique, Tickable, Serializable {
      * @param density Density in kg/m3
      */
     void setAirDensity(@Positive double density);
+
+    /**
+     * Sets the Y level of this world which is considered to be ground.
+     *
+     * @param level Y coordinate of ground level
+     */
+    void setGroundLevel(double level);
 }

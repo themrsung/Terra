@@ -2,7 +2,9 @@ package oasis.artemis.object;
 
 import oasis.artemis.physics.*;
 import oasis.artemis.util.Unique;
+import oasis.artemis.world.World;
 
+import javax.annotation.Nonnegative;
 import javax.annotation.Nonnull;
 import javax.validation.constraints.Positive;
 import java.io.Serializable;
@@ -16,6 +18,11 @@ import java.io.Serializable;
  */
 public interface TObject extends Unique, Serializable {
     //
+    // Constants
+    //
+    double DEFAULT_DRAG_COEFFICIENT = 1.0;
+
+    //
     // Physics
     //
 
@@ -28,6 +35,14 @@ public interface TObject extends Unique, Serializable {
     Location getLocation();
 
     /**
+     * Gets the world this object is in.
+     *
+     * @return {@link World}
+     */
+    @Nonnull
+    default World getWorld() { return getLocation().world(); }
+
+    /**
      * Gets the vector of this object.
      *
      * @return {@link Vector}
@@ -36,12 +51,27 @@ public interface TObject extends Unique, Serializable {
     Vector getVector();
 
     /**
+     * Gets the velocity of this object, denoted in meters per second.
+     * @return Velocity
+     */
+    @Nonnegative
+    default double getVelocity() { return getVector().getVelocity(); }
+
+    /**
      * Gets the mass of this object.
      *
      * @return {@link Mass}
      */
     @Nonnull
     Mass getMass();
+
+    /**
+     * Gets the mass of this object, denoted in kilograms.
+     *
+     * @return {@link Mass#valueKilograms()}
+     */
+    @Nonnegative
+    default double getMassKilograms() {return getMass().valueKilograms();}
 
     /**
      * Gets the volume of this object.
@@ -80,17 +110,14 @@ public interface TObject extends Unique, Serializable {
 
     /**
      * Gets the density of this object, denoted in kilograms per cubic meter.
-     * This cannot return 0, as it will break physics calculations.
-     * If this object has no mass or no volume, it will return {@link Double#MIN_VALUE}.
      *
      * @return Density (kg/m3)
      */
-    @Positive
     default double getDensity() {
         try {
-            return Math.max(getMass().valueKilograms() / getVolume().getVolume(), Double.MIN_VALUE);
+            return getMass().valueKilograms() / getVolume().getVolume();
         } catch (ArithmeticException e) {
-            return Double.MIN_VALUE;
+            return 0;
         }
     }
 

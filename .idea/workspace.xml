@@ -4,22 +4,32 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="128b8473-fae6-4bac-a232-81cbfd8e9124" name="Changes" comment="Initial commit">
-      <change afterPath="$PROJECT_DIR$/TerraTypes/src/main/java/oasis/artemis/economy/Asset.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TerraTypes/src/main/java/oasis/artemis/economy/AssetStack.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TerraTypes/src/main/java/oasis/artemis/exception/TerraException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TerraTypes/src/main/java/oasis/artemis/exception/economy/DifferentAssetException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TerraTypes/src/main/java/oasis/artemis/exception/economy/EconomyException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TerraTypes/src/main/java/oasis/artemis/exception/physics/DifferentWorldException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TerraTypes/src/main/java/oasis/artemis/exception/physics/PhysicsException.java" afterDir="false" />
+    <list default="true" id="128b8473-fae6-4bac-a232-81cbfd8e9124" name="Changes" comment="Added exceptions">
+      <change afterPath="$PROJECT_DIR$/TerraEngine/src/main/java/oasis/artemis/event/Event.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TerraEngine/src/main/java/oasis/artemis/event/EventManager.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TerraEngine/src/main/java/oasis/artemis/event/physics/CollisionEvent.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TerraEngine/src/main/java/oasis/artemis/listener/Listener.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TerraEngine/src/main/java/oasis/artemis/scheduler/Scheduler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TerraEngine/src/main/java/oasis/artemis/state/State.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TerraEngine/src/main/java/oasis/artemis/task/Task.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TerraEngine/src/main/java/oasis/artemis/task/debug/DebugTask.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TerraEngine/src/main/java/oasis/artemis/task/physics/CollisionTask.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TerraEngine/src/main/java/oasis/artemis/task/physics/GravityTask.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TerraEngine/src/main/java/oasis/artemis/task/physics/MovementTask.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TerraEngine/src/main/java/oasis/artemis/world/RealisticWorld.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TerraTypes/src/main/java/oasis/artemis/object/AbstractObject.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TerraTypes/src/main/java/oasis/artemis/object/RealisticObject.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TerraTypes/src/main/java/oasis/artemis/object/pawn/Pawn.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TerraTypes/src/main/java/oasis/artemis/physics/Face.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TerraTypes/src/main/java/oasis/artemis/physics/Metric.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TerraTypes/src/main/java/oasis/artemis/physics/Physics.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TerraTypes/src/main/java/oasis/artemis/world/AbstractWorld.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TerraEngine/src/main/java/oasis/artemis/TerraEngine.java" beforeDir="false" afterPath="$PROJECT_DIR$/TerraEngine/src/main/java/oasis/artemis/TerraEngine.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/TerraTypes/src/main/java/oasis/artemis/object/TObject.java" beforeDir="false" afterPath="$PROJECT_DIR$/TerraTypes/src/main/java/oasis/artemis/object/TObject.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TerraTypes/src/main/java/oasis/artemis/physics/Location.java" beforeDir="false" afterPath="$PROJECT_DIR$/TerraTypes/src/main/java/oasis/artemis/physics/Location.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/TerraTypes/src/main/java/oasis/artemis/physics/Mass.java" beforeDir="false" afterPath="$PROJECT_DIR$/TerraTypes/src/main/java/oasis/artemis/physics/Mass.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/TerraTypes/src/main/java/oasis/artemis/physics/TriLocation.java" beforeDir="false" afterPath="$PROJECT_DIR$/TerraTypes/src/main/java/oasis/artemis/physics/TriLocation.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TerraTypes/src/main/java/oasis/artemis/physics/Vector.java" beforeDir="false" afterPath="$PROJECT_DIR$/TerraTypes/src/main/java/oasis/artemis/physics/Vector.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/TerraTypes/src/main/java/oasis/artemis/physics/Volume.java" beforeDir="false" afterPath="$PROJECT_DIR$/TerraTypes/src/main/java/oasis/artemis/physics/Volume.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TerraTypes/src/main/java/oasis/artemis/string/TString.java" beforeDir="false" afterPath="$PROJECT_DIR$/TerraTypes/src/main/java/oasis/artemis/string/TString.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/TerraTypes/src/main/java/oasis/artemis/world/World.java" beforeDir="false" afterPath="$PROJECT_DIR$/TerraTypes/src/main/java/oasis/artemis/world/World.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -30,6 +40,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="module-info" />
+        <option value="Enum" />
         <option value="Interface" />
         <option value="Class" />
       </list>
@@ -66,17 +78,31 @@
       <recent name="C:\Users\themr\OneDrive\바탕 화면\Projects\Terra\TerraTypes\src\main\java\oasis\artemis\physics" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
-      <recent name="oasis.artemis.util" />
+      <recent name="oasis.artemis.task.physics" />
       <recent name="oasis.artemis.world" />
+      <recent name="oasis.artemis.util" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.TerraTypes">
+  <component name="RunManager" selected="Application.TerraEngine">
     <configuration name="Terra" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="oasis.artemis.Terra" />
       <module name="Terra" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="oasis.artemis.Terra" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="TerraEngine" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="oasis.artemis.TerraEngine" />
+      <module name="TerraEngine" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="oasis.artemis.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -99,6 +125,7 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.TerraEngine" />
         <item itemvalue="Application.TerraTypes" />
         <item itemvalue="Application.Terra" />
       </list>
@@ -121,12 +148,21 @@
       <option name="project" value="LOCAL" />
       <updated>1689015463782</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Added exceptions">
+      <option name="closed" value="true" />
+      <created>1689018210914</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1689018210914</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="Initial commit" />
-    <option name="LAST_COMMIT_MESSAGE" value="Initial commit" />
+    <MESSAGE value="Added exceptions" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added exceptions" />
   </component>
 </project>

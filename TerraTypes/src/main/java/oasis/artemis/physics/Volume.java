@@ -48,6 +48,21 @@ public record Volume(
     }
 
     /**
+     * Gets the cross-section of this volume.
+     *
+     * @param facing Facing to get
+     * @return Cross-section of given facing
+     */
+    @Nonnegative
+    public double getCrossSection(@Nonnull Face facing) {
+        return switch (facing) {
+            case POSITIVE_X, NEGATIVE_X -> getCrossSectionYZ();
+            case POSITIVE_Y, NEGATIVE_Y -> getCrossSectionXZ();
+            case POSITIVE_Z, NEGATIVE_Z -> getCrossSectionXY();
+        };
+    }
+
+    /**
      * Gets the cross-section of X and Y.
      *
      * @return XY cross-section

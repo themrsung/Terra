@@ -56,19 +56,38 @@ public record TriLocation(
      * @return {@code true} if the point is within this TriLocation
      */
     public boolean contains(@Nonnull Location point) {
-        final double minX = center.x() - volume.x() / 2;
-        final double maxX = center.x() + volume.x() / 2;
+        final double minX = getMinX();
+        final double maxX = getMaxX();
         final boolean xContains = point.x() >= minX && point.x() <= maxX;
 
-        final double minY = center.y() - volume.y() / 2;
-        final double maxY = center.y() + volume.y() / 2;
+        final double minY = getMinY();
+        final double maxY = getMaxY();
         final boolean yContains = point.y() >= minY && point.y() <= maxY;
 
-        final double minZ = center.z() - volume.z() / 2;
-        final double maxZ = center.z() + volume.z() / 2;
+        final double minZ = getMinZ();
+        final double maxZ = getMaxZ();
         final boolean zContains = point.z() >= minZ && point.z() <= maxZ;
 
         return xContains && yContains && zContains;
+    }
+
+    /**
+     * Checks if given point is within the bounds of this TriLocation in two-dimensional context.
+     * This ignores the Y value of both this TriLocation and given location.
+     *
+     * @param point Point to check
+     * @return {@code true} if the point's X and Z coordinate are within the bounds of this TriLocation
+     */
+    public boolean containsIgnoreY(@Nonnull Location point) {
+        final double minX = getMinX();
+        final double maxX = getMaxX();
+        final boolean xContains = point.x() >= minX && point.x() <= maxX;
+
+        final double minZ = getMinZ();
+        final double maxZ = getMaxZ();
+        final boolean zContains = point.z() >= minZ && point.z() <= maxZ;
+
+        return xContains && zContains;
     }
 
     /**
@@ -99,10 +118,61 @@ public record TriLocation(
         return false;
     }
 
+
+    /**
+     * Gets the maximum X coordinate of this TriLocation.
+     * @return Maximum X
+     */
+    public double getMaxX() {
+        return center.x() + volume.x() / 2;
+    }
+
+    /**
+     * Gets the minimum X coordinate of this TriLocation.
+     * @return Minimum X
+     */
+    public double getMinX() {
+        return center.x() - volume.x() / 2;
+    }
+
+
+    /**
+     * Gets the maximum Y coordinate of this TriLocation.
+     * @return Maximum Y
+     */
+    public double getMaxY() {
+        return center.y() + volume.y() / 2;
+    }
+
+    /**
+     * Gets the minimum Y coordinate of this TriLocation.
+     * @return Minimum Y
+     */
+    public double getMinY() {
+        return center.y() - volume.y() / 2;
+    }
+
+
+    /**
+     * Gets the maximum Z coordinate of this TriLocation.
+     * @return Maximum Z
+     */
+    public double getMaxZ() {
+        return center.z() + volume.z() / 2;
+    }
+
+    /**
+     * Gets the minimum Z coordinate of this TriLocation.
+     * @return Minimum Z
+     */
+    public double getMinZ() {
+        return center.z() - volume.z() / 2;
+    }
+
     /**
      * Moves this TriLocation in given direction.
      *
-     * @param direction Direction to move in
+     * @param direction Face to move in
      * @return Resulting TriLocation
      */
     @Nonnull
