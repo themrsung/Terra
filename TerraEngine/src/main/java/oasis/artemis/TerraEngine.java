@@ -17,11 +17,13 @@ import oasis.artemis.world.RealisticWorld;
 import oasis.artemis.world.World;
 
 import javax.annotation.Nonnull;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 import java.util.UUID;
 
 /**
  * <h2>TerraEngine</h2>
- * <p>The main interface of TerraEngine.</p>
+ * <p>The main class of TerraEngine.</p>
  */
 public final class TerraEngine {
     //
@@ -54,6 +56,16 @@ public final class TerraEngine {
     @Nonnull
     public static State getState() {
         return state;
+    }
+
+    /**
+     * Gets the graphics instance.
+     *
+     * @return {@link TerraGraphics}
+     */
+    @Nonnull
+    public static TerraGraphics getGraphics() {
+        return graphics;
     }
 
     //
@@ -139,6 +151,24 @@ public final class TerraEngine {
 
         // Start scheduler
         startScheduler();
+
+        // Open viewport
+        graphics.openViewport();
+
+        graphics.getFrame().addWindowListener(new WindowAdapter() {
+            @Override
+            public void windowClosing(WindowEvent e) {
+                stop();
+            }
+        });
+    }
+
+    /**
+     * Stops the engine.
+     */
+    public static void stop() {
+        scheduler.stop();
+        graphics.closeViewport();
     }
 
     // Registers all tasks
@@ -168,4 +198,7 @@ public final class TerraEngine {
 
     // State
     private static final State state = new State();
+
+    // Graphics
+    private static final TerraGraphics graphics = new TerraGraphics();
 }

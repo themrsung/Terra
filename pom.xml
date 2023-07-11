@@ -11,6 +11,8 @@
     <modules>
         <module>TerraTypes</module>
         <module>TerraEngine</module>
+        <module>TerraGraphics</module>
+        <module>TerraScript</module>
     </modules>
 
     <properties>

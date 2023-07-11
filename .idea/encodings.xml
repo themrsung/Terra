@@ -3,6 +3,10 @@
   <component name="Encoding">
     <file url="file://$PROJECT_DIR$/TerraEngine/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/TerraEngine/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/TerraGraphics/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/TerraGraphics/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/TerraScript/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/TerraScript/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/TerraTypes/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/TerraTypes/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/java" charset="UTF-8" />
