@@ -30,13 +30,15 @@ public final class TerraEngine {
 
     /**
      * Gets the scheduler instance.
+     *
      * @return {@link Scheduler}
      */
     @Nonnull
-    public static Scheduler getScheduler() { return scheduler; }
+    public static Scheduler getScheduler() {return scheduler;}
 
     /**
      * Gets the event manager instance.
+     *
      * @return {@link EventManager}
      */
     @Nonnull
@@ -46,6 +48,7 @@ public final class TerraEngine {
 
     /**
      * Gets the state instance.
+     *
      * @return {@link State}
      */
     @Nonnull
@@ -59,6 +62,7 @@ public final class TerraEngine {
 
     /**
      * The main method of TerraEngine.
+     *
      * @param args Arguments
      */
     public static void main(String[] args) {

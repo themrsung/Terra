@@ -17,6 +17,7 @@ public class State {
 
     /**
      * Gets a list of all worlds present in this state.
+     *
      * @return List of worlds
      */
     @Nonnull
@@ -26,6 +27,7 @@ public class State {
 
     /**
      * Adds a world to this state.
+     *
      * @param world World to add
      */
     public void addWorld(@Nonnull World world) {
@@ -34,6 +36,7 @@ public class State {
 
     /**
      * Removes a world from this state.
+     *
      * @param world World to remove
      */
     public void removeWorld(@Nonnull World world) {

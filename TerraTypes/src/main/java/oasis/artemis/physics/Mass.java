@@ -7,9 +7,9 @@ import java.io.Serializable;
 /**
  * <h2>Mass</h2>
  * <p>
- *     Represents the mass of an object.
- *     Non-SI units should be declared only once.
- *     Conversion between unit systems is lossy.
+ * Represents the mass of an object.
+ * Non-SI units should be declared only once.
+ * Conversion between unit systems is lossy.
  * </p>
  *
  * @param value Value of mass
@@ -40,10 +40,11 @@ public record Mass(
 
     /**
      * Gets the value of this mass denoted in milligrams.
+     *
      * @return Milligrams
      */
     @Nonnegative
-    public double valueMilligrams() { return value * unit.toMilligrams(); }
+    public double valueMilligrams() {return value * unit.toMilligrams();}
 
     /**
      * Gets the value of this mass denoted in grams.

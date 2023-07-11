@@ -10,17 +10,18 @@ import java.util.Comparator;
 /**
  * <h2>EventManager</h2>
  * <p>
- *     Handles the registration of event listeners,
- *     and the calling of events.
+ * Handles the registration of event listeners,
+ * and the calling of events.
  * </p>
  * <p>
- *     You can extend this class to implement asynchronous processing,
- *     which is not possible by default.
+ * You can extend this class to implement asynchronous processing,
+ * which is not possible by default.
  * </p>
  */
 public class EventManager {
     /**
      * Calls an event to be handled.
+     *
      * @param event Event to call
      */
     public void callEvent(@Nonnull Event event) {
@@ -32,6 +33,7 @@ public class EventManager {
 
     /**
      * Registers a listener.
+     *
      * @param listener Listener to register
      */
     public void registerListener(@Nonnull Listener<?> listener) {
@@ -41,6 +43,7 @@ public class EventManager {
 
     /**
      * Unregisters a listener.
+     *
      * @param listener Listener to unregister
      */
     public void unregisterListener(@Nonnull Listener<?> listener) {

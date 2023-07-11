@@ -11,8 +11,8 @@ import javax.annotation.Nonnull;
 /**
  * <h2>Scheduler</h2>
  * <p>
- *     A scheduler handles the scheduling and execution of tasks.
- *     Tasks in Terra are defined as {@link Task}s.
+ * A scheduler handles the scheduling and execution of tasks.
+ * Tasks in Terra are defined as {@link Task}s.
  * </p>
  */
 public class Scheduler {
@@ -48,6 +48,7 @@ public class Scheduler {
 
     /**
      * Registers a task.
+     *
      * @param task Task to register
      */
     public void registerTask(@Nonnull Task task) {
@@ -56,6 +57,7 @@ public class Scheduler {
 
     /**
      * Registers multiple tasks.
+     *
      * @param tasks Tasks to register
      */
     public void registerTasks(@Nonnull Task... tasks) {
@@ -64,6 +66,7 @@ public class Scheduler {
 
     /**
      * Registers a list of tasks.
+     *
      * @param tasks List of tasks to register
      */
     public void registerTasks(@Nonnull TList<Task> tasks) {
@@ -77,7 +80,7 @@ public class Scheduler {
      * @param task Task to unregister
      */
     public void unregisterTask(@Nonnull Task task) {
-       tasks.removeIf(e -> e.task.equals(task));
+        tasks.removeIf(e -> e.task.equals(task));
     }
 
     //
@@ -89,7 +92,7 @@ public class Scheduler {
         this.tasks = new TArray<>();
 
         this.thread = new Thread(() -> {
-            while(true) {
+            while (true) {
                 tasks.forEach(entry -> {
                     final Task task = entry.task;
 

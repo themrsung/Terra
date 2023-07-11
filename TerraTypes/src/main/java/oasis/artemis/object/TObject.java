@@ -40,7 +40,7 @@ public interface TObject extends Unique, Serializable {
      * @return {@link World}
      */
     @Nonnull
-    default World getWorld() { return getLocation().world(); }
+    default World getWorld() {return getLocation().world();}
 
     /**
      * Gets the vector of this object.
@@ -52,10 +52,11 @@ public interface TObject extends Unique, Serializable {
 
     /**
      * Gets the velocity of this object, denoted in meters per second.
+     *
      * @return Velocity
      */
     @Nonnegative
-    default double getVelocity() { return getVector().getVelocity(); }
+    default double getVelocity() {return getVector().getVelocity();}
 
     /**
      * Gets the mass of this object.

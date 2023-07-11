@@ -7,8 +7,9 @@ import javax.annotation.Nonnull;
 /**
  * <h2>Listener</h2>
  * <p>
- *     Subscribes to and handles the processing of an {@link Event}.
+ * Subscribes to and handles the processing of an {@link Event}.
  * </p>
+ *
  * @param <E> Type of event this listener handles
  */
 public interface Listener<E extends Event> {
@@ -22,6 +23,7 @@ public interface Listener<E extends Event> {
 
     /**
      * Gets the class of event handled by this listener.
+     *
      * @return Class of {@link E}
      */
     @Nonnull
@@ -29,10 +31,11 @@ public interface Listener<E extends Event> {
 
     /**
      * Gets the priority of this listener.
+     *
      * @return {@link Priority}
      */
     @Nonnull
-    default Priority getPriority() { return Priority.NORMAL; }
+    default Priority getPriority() {return Priority.NORMAL;}
 
     /**
      * The priority of an event listener.

@@ -1,24 +1,18 @@
 package oasis.artemis.task.physics;
 
 import oasis.artemis.TerraEngine;
-import oasis.artemis.collection.set.TSet;
-import oasis.artemis.map.THashMap;
-import oasis.artemis.map.TMap;
-import oasis.artemis.object.TObject;
 import oasis.artemis.physics.Face;
 import oasis.artemis.physics.Physics;
 import oasis.artemis.physics.Vector;
 import oasis.artemis.task.Task;
-import oasis.artemis.world.World;
 import org.joda.time.Duration;
 
 import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
 
 /**
  * <h2>MovementTask</h2>
  * <p>
- *     Handles the movement of objects.
+ * Handles the movement of objects.
  * </p>
  */
 public final class MovementTask implements Task {

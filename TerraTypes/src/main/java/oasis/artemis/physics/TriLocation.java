@@ -121,6 +121,7 @@ public record TriLocation(
 
     /**
      * Gets the maximum X coordinate of this TriLocation.
+     *
      * @return Maximum X
      */
     public double getMaxX() {
@@ -129,6 +130,7 @@ public record TriLocation(
 
     /**
      * Gets the minimum X coordinate of this TriLocation.
+     *
      * @return Minimum X
      */
     public double getMinX() {
@@ -138,6 +140,7 @@ public record TriLocation(
 
     /**
      * Gets the maximum Y coordinate of this TriLocation.
+     *
      * @return Maximum Y
      */
     public double getMaxY() {
@@ -146,6 +149,7 @@ public record TriLocation(
 
     /**
      * Gets the minimum Y coordinate of this TriLocation.
+     *
      * @return Minimum Y
      */
     public double getMinY() {
@@ -155,6 +159,7 @@ public record TriLocation(
 
     /**
      * Gets the maximum Z coordinate of this TriLocation.
+     *
      * @return Maximum Z
      */
     public double getMaxZ() {
@@ -163,6 +168,7 @@ public record TriLocation(
 
     /**
      * Gets the minimum Z coordinate of this TriLocation.
+     *
      * @return Minimum Z
      */
     public double getMinZ() {

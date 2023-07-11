@@ -5,7 +5,6 @@ import oasis.artemis.collection.set.TSet;
 import oasis.artemis.object.TObject;
 import oasis.artemis.string.TString;
 
-import javax.annotation.Nonnegative;
 import javax.annotation.Nonnull;
 import javax.validation.constraints.Positive;
 import java.util.UUID;
@@ -13,8 +12,8 @@ import java.util.UUID;
 /**
  * <h2>AbstractWorld</h2>
  * <p>
- *     An abstract world is the base platform for easier development.
- *     There are no built-in restrictions to parameters.
+ * An abstract world is the base platform for easier development.
+ * There are no built-in restrictions to parameters.
  * </p>
  */
 public abstract class AbstractWorld implements World {
@@ -22,7 +21,7 @@ public abstract class AbstractWorld implements World {
      * Default minimal constructor.
      *
      * @param uniqueId Unique ID of this world
-     * @param name Name of this world
+     * @param name     Name of this world
      */
     public AbstractWorld(@Nonnull UUID uniqueId, @Nonnull TString name) {
         this.uniqueId = uniqueId;
@@ -36,10 +35,10 @@ public abstract class AbstractWorld implements World {
     /**
      * Default maximal constructor.
      *
-     * @param uniqueId Unique ID of this world
-     * @param name Name of this world
-     * @param gravity Gravity of this world
-     * @param airDensity Air density of this world
+     * @param uniqueId    Unique ID of this world
+     * @param name        Name of this world
+     * @param gravity     Gravity of this world
+     * @param airDensity  Air density of this world
      * @param groundLevel Ground level of this world
      */
     public AbstractWorld(@Nonnull UUID uniqueId, @Nonnull TString name, double gravity, double airDensity, double groundLevel) {
@@ -54,11 +53,11 @@ public abstract class AbstractWorld implements World {
     /**
      * Default all-args constructor.
      *
-     * @param uniqueId Unique ID of this world
-     * @param name Name of this world
-     * @param objects Objects contained in this world
-     * @param gravity Gravity of this world
-     * @param airDensity Air density of this world
+     * @param uniqueId    Unique ID of this world
+     * @param name        Name of this world
+     * @param objects     Objects contained in this world
+     * @param gravity     Gravity of this world
+     * @param airDensity  Air density of this world
      * @param groundLevel Ground level of this world
      */
     public AbstractWorld(@Nonnull UUID uniqueId, @Nonnull TString name, @Nonnull TSet<TObject> objects, double gravity, double airDensity, double groundLevel) {

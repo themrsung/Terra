@@ -5,18 +5,18 @@ import javax.annotation.Nullable;
 /**
  * <h2>Event</h2>
  * <p>
- *     An event is called either before or after an action.
- *     Events are handled synchronously in the order they were called.
+ * An event is called either before or after an action.
+ * Events are handled synchronously in the order they were called.
  * </p>
  * <p>
- *     Keep in mind when inheriting other events,
- *     that the event will be handled once per every parent instance.
- *     Seal all events as {@code final} unless inheritance is absolutely necessary.
- *     Always declare abstract events {@code abstract}.
+ * Keep in mind when inheriting other events,
+ * that the event will be handled once per every parent instance.
+ * Seal all events as {@code final} unless inheritance is absolutely necessary.
+ * Always declare abstract events {@code abstract}.
  * </p>
  * <p>
- *     Creating builder is recommended when there are more than 4-5 required parameters,
- *     or the order of the parameters in the constructor is not very obvious.
+ * Creating builder is recommended when there are more than 4-5 required parameters,
+ * or the order of the parameters in the constructor is not very obvious.
  * </p>
  */
 public abstract class Event {
@@ -31,7 +31,8 @@ public abstract class Event {
 
     /**
      * Default all-args constructor.
-     * @param cause Cause of this event
+     *
+     * @param cause     Cause of this event
      * @param onHandled Runnable to execute post-handling
      */
     public Event(@Nullable Event cause, @Nullable Runnable onHandled) {
@@ -43,6 +44,7 @@ public abstract class Event {
      * Gets the event preceding this event in an event chain.
      * Value {@code null} means this is the first event in a chain,
      * or is an independent singular event.
+     *
      * @return Cause
      */
     @Nullable

@@ -12,12 +12,11 @@ import oasis.artemis.world.World;
 import org.joda.time.Duration;
 
 import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
 
 /**
  * <h2>CollisionTask</h2>
  * <p>
- *     Handles collision between objects.
+ * Handles collision between objects.
  * </p>
  */
 public final class CollisionTask implements Task {

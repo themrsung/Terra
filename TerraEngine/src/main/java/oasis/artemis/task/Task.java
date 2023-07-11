@@ -12,6 +12,7 @@ import javax.annotation.Nullable;
 public interface Task {
     /**
      * Executes this task.
+     *
      * @param delta Amount of time which has passed between the last execution of this task and now.
      *              If this is the first execution, this will be the duration between registration and now.
      */
@@ -19,6 +20,7 @@ public interface Task {
 
     /**
      * Gets delay of this task.
+     *
      * @return Delay
      */
     @Nonnull
@@ -33,9 +35,10 @@ public interface Task {
      * after the specified delay has passed.
      * </p>
      * <p>
-     *     When this is set to {@link Task#ZERO},
-     *     it guarantees that this task will be called every loop.
+     * When this is set to {@link Task#ZERO},
+     * it guarantees that this task will be called every loop.
      * </p>
+     *
      * @return Interval
      */
     @Nullable

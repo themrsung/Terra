@@ -7,12 +7,11 @@ import oasis.artemis.task.Task;
 import org.joda.time.Duration;
 
 import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
 
 /**
  * <h2>GravityTask</h2>
  * <p>
- *     Handles gravity.
+ * Handles gravity.
  * </p>
  */
 public final class GravityTask implements Task {
