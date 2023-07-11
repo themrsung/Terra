@@ -84,6 +84,8 @@ public final class TerraEngine {
         person.setVolume(Volume.builder().xyz(Metric.centimeter(20), Metric.centimeter(170), Metric.centimeter(15)).build());
         person.setMass(new Mass(70, Mass.Unit.KILOGRAM));
 
+//        person.setVolume(new Volume(1000, 1, 1000));
+
 //        person.setVector(person.getVector().plusX(1));
 
 //        person.setVector(person.getVector().plusX(Metric.kilometersPerHour(300)));

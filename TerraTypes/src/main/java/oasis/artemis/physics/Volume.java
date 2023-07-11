@@ -71,7 +71,7 @@ public record Volume(
         final double diagonalXZ = Math.sqrt(Math.pow(x, 2) + Math.pow(z, 2));
         final double diagonalXY = Math.sqrt(Math.pow(x, 2) + Math.pow(y, 2));
 
-        // When the cross-section is a rectangle
+        // When the cross-section is a face-diagonal
         final double xWithYZDiagonal = x * diagonalYZ;
         final double yWithXZDiagonal = y * diagonalXZ;
         final double zWithXYDiagonal = z * diagonalXY;
@@ -96,17 +96,10 @@ public record Volume(
             }
         }
 
-        // When the cross-section is a hexagon.
-        final double halfDiagonalXY = diagonalXY / 2;
-        final double halfDiagonalXZ = diagonalXZ / 2;
-        final double halfDiagonalYZ = diagonalYZ / 2;
+        // When the cross-section is a body-diagonal.
+        final double bodyDiagonal = Math.sqrt(Math.pow(x, 2) + Math.pow(y, 2) + Math.pow(z, 2));
 
-        if (
-                direction.isFacingAll(Face.POSITIVE_X, Face.POSITIVE_Y, Face.POSITIVE_Z) ||
-                        direction.isFacingAll(Face.NEGATIVE_X, Face.NEGATIVE_Y, Face.NEGATIVE_Z)
-        ) {
-
-        }
+        if (!direction.isZero()) return bodyDiagonal;
 
         return 0;
     }

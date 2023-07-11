@@ -80,7 +80,7 @@ public interface Physics {
 
         final TSet<TObject> objects = world.getObjects();
         for (TObject o : objects) {
-            if (isOnTopOf(object, o.getTriLocation()) && o.getTriLocation().getMaxY() > world.getGroundLevel()) {
+            if (isStandingOn(object, o.getTriLocation()) && o.getTriLocation().getMaxY() > world.getGroundLevel()) {
                 heightFromGround = object.getLocation().y() - o.getTriLocation().getMaxY();
             }
         }
@@ -99,40 +99,40 @@ public interface Physics {
     /**
      * Checks if the first object (henceforth o1) is above the second object (henceforth o2).
      * This will check if o1's X and Z coordinates are within the bounds of o2's TriLocation,
-     * and whether o1's TriLocation's minimum Y is equal to or greater than o2's TriLocation's maximum Y.
+     * and whether o1's TriLocation's minimum Y is equal to or smaller than o2's TriLocation's maximum Y.
      *
      * @param o1 Object 1
      * @param o2 Object 2
      * @return {@code true} if o1 is above o2
      */
-    static boolean isOnTopOf(@Nonnull TObject o1, @Nonnull TObject o2) {
-        return isOnTopOf(o1.getTriLocation(), o2.getTriLocation());
+    static boolean isStandingOn(@Nonnull TObject o1, @Nonnull TObject o2) {
+        return isStandingOn(o1.getTriLocation(), o2.getTriLocation());
     }
 
     /**
      * Checks if the object is above given TriLocation.
      * This will check if the object's X and Z coordinate are within the bounds of given TriLocation,
-     * and whether the object's TriLocation's minimum Y is equal to or greater than the given TriLocation's maximum Y.
-     * This method delegates to {@link Physics#isOnTopOf(TriLocation, TriLocation)}.
+     * and whether the object's TriLocation's minimum Y is equal to or smaller than the given TriLocation's maximum Y.
+     * This method delegates to {@link Physics#isStandingOn(TriLocation, TriLocation)}.
      *
      * @param object      Object
      * @param triLocation TriLocation to check
      * @return {@code true} if the object is on top of given TriLocation
      */
-    static boolean isOnTopOf(@Nonnull TObject object, @Nonnull TriLocation triLocation) {
-        return isOnTopOf(object.getTriLocation(), triLocation);
+    static boolean isStandingOn(@Nonnull TObject object, @Nonnull TriLocation triLocation) {
+        return isStandingOn(object.getTriLocation(), triLocation);
     }
 
     /**
      * Checks if the first TriLocation (henceforth t1) is on top of the second TriLocation (henceforth t2).
      * This will check if t1's median X and Z coordinate are within the bounds of t2,
-     * and whether t1's minimum Y is equal to or greater than t2's maximum Y.
+     * and whether t1's minimum Y is equal to or smaller than t2's maximum Y.
      *
      * @param t1 TriLocation 1
      * @param t2 TriLocation 2
      * @return {@code true} if t1 is above t2
      */
-    static boolean isOnTopOf(@Nonnull TriLocation t1, @Nonnull TriLocation t2) {
-        return t2.containsIgnoreY(t1.center()) && t1.getMinY() >= t2.getMaxY();
+    static boolean isStandingOn(@Nonnull TriLocation t1, @Nonnull TriLocation t2) {
+        return t2.containsIgnoreY(t1.center()) && t1.getMinY() <= t2.getMaxY();
     }
 }

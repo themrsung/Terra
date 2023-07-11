@@ -3,6 +3,7 @@ package oasis.artemis.task.physics;
 import oasis.artemis.TerraEngine;
 import oasis.artemis.collection.set.TSet;
 import oasis.artemis.object.TObject;
+import oasis.artemis.physics.Physics;
 import oasis.artemis.task.Task;
 import org.joda.time.Duration;
 
@@ -31,19 +32,25 @@ public final class ResistanceTask implements Task {
                    if (fluid.getDensity() > fluidDensity) fluidDensity = fluid.getDensity();
                }
 
+               final double kineticEnergy = Math.max(Physics.kineticEnergy(object), Double.MIN_VALUE);
+
                final double crossSection = object.getVolume().getCrossSection(object.getVector().modifyAll(-1));
                final double forceConstant = fluidDensity * object.getDragCoefficient() * crossSection;
                final double dragForce = forceConstant * Math.pow(object.getVelocity(), 2);
-               final double deceleration = -1 * dragForce / object.getMassKilograms();
+               final double decelerationRatio = Math.max(Double.MIN_VALUE, 1 - (dragForce / kineticEnergy));
 
-//               System.out.println(crossSection);
-//               System.out.println(forceConstant);
-//               System.out.println(dragForce);
-//               System.out.println(deceleration);
+//               if (object instanceof RealisticObject) {
 //
-//               System.out.println("===");
+//                   System.out.println(kineticEnergy);
+//                   System.out.println(crossSection);
+//                   System.out.println(forceConstant);
+//                   System.out.println(dragForce);
+//                   System.out.println(decelerationRatio);
+//
+//                   System.out.println("===");
+//               }
 
-//               object.setVector(object.getVector().plusY(deceleration));
+               object.setVector(object.getVector().modifyAll(decelerationRatio));
            });
         });
     }

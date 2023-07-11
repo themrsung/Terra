@@ -15,12 +15,12 @@ public final class CollisionListener implements Listener<CollisionEvent> {
         final TObject o1 = event.getObject1();
         final TObject o2 = event.getObject2();
 
-        System.out.println("Collision!");
-
-        System.out.println("o1 = " + o1.getUniqueId());
-
-        System.out.println(getFinalVelocity(o1, o2));
-        System.out.println(getFinalVelocity(o2, o1));
+//        System.out.println("Collision!");
+//
+//        System.out.println("o1 = " + o1.getUniqueId());
+//
+//        System.out.println(getFinalVelocity(o1, o2));
+//        System.out.println(getFinalVelocity(o2, o1));
 
         o1.setVector(getFinalVelocity(o1, o2));
         o2.setVector(getFinalVelocity(o2, o1));
@@ -54,7 +54,8 @@ public final class CollisionListener implements Listener<CollisionEvent> {
         final double v1 = 0;
 
         final double zero = (1 - ratioOfMass) * Math.pow(v1, 2) - 2;
-        return u1;
+        return u1 * 0.5; // TODO TODO TODO TODO THIS IS A BODGED SOLUTION
+        // FIGURE OUT HOW TO SOLVE THE DAMN QUADRATIC AND IMPLEMENT THIS
     }
 
     @Nonnull
