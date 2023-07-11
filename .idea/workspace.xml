@@ -4,9 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="128b8473-fae6-4bac-a232-81cbfd8e9124" name="Changes" comment="Alright everything sort of works.">
-      <change afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="128b8473-fae6-4bac-a232-81cbfd8e9124" name="Changes" comment="Added README">
+      <change beforePath="$PROJECT_DIR$/TerraTypes/src/main/java/oasis/artemis/physics/TriLocation.java" beforeDir="false" afterPath="$PROJECT_DIR$/TerraTypes/src/main/java/oasis/artemis/physics/TriLocation.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -175,7 +174,15 @@
       <option name="project" value="LOCAL" />
       <updated>1689070028094</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="Added README">
+      <option name="closed" value="true" />
+      <created>1689072324765</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1689072324765</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -187,6 +194,7 @@
     <MESSAGE value="Reformat code, bug in MovementTask fixed." />
     <MESSAGE value="Saving progress" />
     <MESSAGE value="Alright everything sort of works." />
-    <option name="LAST_COMMIT_MESSAGE" value="Alright everything sort of works." />
+    <MESSAGE value="Added README" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added README" />
   </component>
 </project>

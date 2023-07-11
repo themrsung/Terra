@@ -236,7 +236,9 @@ public record TriLocation(
          * @throws IllegalArgumentException When at least one of the required parameters are null
          */
         @Nonnull
+        @SuppressWarnings("ConstantConditions")
         public TriLocation build() throws IllegalArgumentException {
+            if (center == null || volume == null) throw new IllegalArgumentException();
             return new TriLocation(this);
         }
     }

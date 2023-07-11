@@ -1,7 +1,6 @@
 package oasis.artemis.task.physics;
 
 import oasis.artemis.TerraEngine;
-import oasis.artemis.physics.Face;
 import oasis.artemis.physics.Physics;
 import oasis.artemis.physics.Vector;
 import oasis.artemis.task.Task;

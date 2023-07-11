@@ -33,7 +33,7 @@ public interface Physics {
      * If any of the parameters in the denominator of this equation is non-positive,
      * they will be assumed to be {@link Double#MIN_VALUE}.
      *
-     * @param object Object to get terminal velocity of
+     * @param object    Object to get terminal velocity of
      * @param direction The direction in which to get the terminal velocity of
      * @return Terminal velocity of object in given world
      */

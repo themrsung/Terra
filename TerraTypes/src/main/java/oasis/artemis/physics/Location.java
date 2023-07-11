@@ -25,7 +25,7 @@ import java.io.Serializable;
  * @param z     Z coordinate of this location (scalar of depth)
  * @param yaw   Yaw (degree on the axis of Y)
  * @param pitch Pitch (degree on the axis of Z)
- * @param roll Roll (degree on the axis of X)
+ * @param roll  Roll (degree on the axis of X)
  */
 public record Location(
         @Nonnull World world,
@@ -92,6 +92,7 @@ public record Location(
 
     /**
      * Converts the roll to fit within the accepted range.
+     *
      * @return Roll
      */
     @Override
@@ -216,6 +217,7 @@ public record Location(
 
     /**
      * Changes the roll of this location.
+     *
      * @param roll Roll
      * @return Resulting location
      */
@@ -226,6 +228,7 @@ public record Location(
 
     /**
      * Adds delta to the yaw of this location.
+     *
      * @param delta Delta to add
      * @return Resulting location
      */
@@ -236,6 +239,7 @@ public record Location(
 
     /**
      * Adds delta to the pitch of this location.
+     *
      * @param delta Delta to add
      * @return Resulting location
      */
@@ -246,6 +250,7 @@ public record Location(
 
     /**
      * Adds delta to the roll of this location.
+     *
      * @param delta Delta to add
      * @return Resulting location
      */

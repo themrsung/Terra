@@ -65,6 +65,7 @@ public record Vector(
 
     /**
      * Gets the diagonal magnitude between X and Y of this vector.
+     *
      * @return Diagonal magnitude
      */
     @Nonnegative
@@ -74,6 +75,7 @@ public record Vector(
 
     /**
      * Gets the diagonal magnitude between X and Z of this vector.
+     *
      * @return Diagonal magnitude
      */
     @Nonnegative
@@ -83,6 +85,7 @@ public record Vector(
 
     /**
      * Gets the diagonal magnitude between Y and Z of this vector.
+     *
      * @return Diagonal magnitude
      */
     @Nonnegative
@@ -92,6 +95,7 @@ public record Vector(
 
     /**
      * Checks if this vector has a positive magnitude towards given facing.
+     *
      * @param facing Facing to check
      * @return {@code true} if this vector is facing given face
      */
@@ -108,6 +112,7 @@ public record Vector(
 
     /**
      * Checks if this vector has a positive magnitude towards all given facings.
+     *
      * @param facings Facings to check
      * @return {@code true} if this vector is facing all given faces
      */
@@ -118,6 +123,7 @@ public record Vector(
 
     /**
      * Checks if this vector has a positive magnitude to at least one of the given facings.
+     *
      * @param facings Facings to check
      * @return {@code true} if this vector is facing at least one of the given faces
      */
@@ -128,6 +134,7 @@ public record Vector(
 
     /**
      * Checks if this vector is only facing towards given facing.
+     *
      * @param facing Facing to check
      * @return {@code true} if this vector is facing given face, and all other magnitudes are zero
      */
@@ -141,6 +148,7 @@ public record Vector(
 
     /**
      * Checks if this all fields of this vector equal to zero.
+     *
      * @return {@code true} if all fields are zero
      */
     public boolean isZero() {
@@ -149,6 +157,7 @@ public record Vector(
 
     /**
      * Gets the yaw of this vector. (degree on axis of Y)
+     *
      * @return Yaw
      */
     public double getYaw() {
@@ -163,6 +172,7 @@ public record Vector(
 
     /**
      * Gets the pitch of this vector. (degree on axis of Z)
+     *
      * @return Pitch
      */
     public double getPitch() {
@@ -177,6 +187,7 @@ public record Vector(
 
     /**
      * Gets the roll of this vector. (degree on axis of X)
+     *
      * @return Roll
      */
     public double getRoll() {

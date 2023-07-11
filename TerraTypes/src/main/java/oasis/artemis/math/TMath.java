@@ -13,7 +13,7 @@ public interface TMath {
      * then converts it back a negative number if number was negative.
      *
      * @param number Number to add magnitude to
-     * @param delta Delta to add (must be non-negative)
+     * @param delta  Delta to add (must be non-negative)
      * @return Resulting number
      */
     static double addMagnitude(double number, @Nonnegative double delta) {

@@ -13,7 +13,6 @@ import oasis.artemis.task.physics.CollisionTask;
 import oasis.artemis.task.physics.GravityTask;
 import oasis.artemis.task.physics.MovementTask;
 import oasis.artemis.task.physics.ResistanceTask;
-import oasis.artemis.util.ObjectPair;
 import oasis.artemis.world.RealisticWorld;
 import oasis.artemis.world.World;
 

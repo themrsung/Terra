@@ -82,7 +82,7 @@ public class ImmovableObject extends AbstractObject {
 
     @Nonnull
     @Override
-    public Vector getVector() { return Vector.ZERO; }
+    public Vector getVector() {return Vector.ZERO;}
 
     @Override
     public void setMass(@Nonnull Mass mass) {}

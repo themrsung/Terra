@@ -25,6 +25,7 @@ public final class CollisionEvent extends Event implements Cancellable {
 
     /**
      * Creates a new collision event.
+     *
      * @param pair Pair of objects
      */
     public CollisionEvent(@Nonnull ObjectPair pair) {
@@ -47,8 +48,8 @@ public final class CollisionEvent extends Event implements Cancellable {
     /**
      * Creates a new collision event.
      *
-     * @param pair Pair of objects
-     * @param cause Cause of the event
+     * @param pair      Pair of objects
+     * @param cause     Cause of the event
      * @param onHandled Runnable to execute post-handling
      */
     public CollisionEvent(@Nonnull ObjectPair pair, @Nullable Event cause, @Nullable Runnable onHandled) {
