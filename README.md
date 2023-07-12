@@ -15,10 +15,6 @@ The operation code of Terra.
 
 The types and classes of Terra.
 
-### TerraGraphics
-
-Handles the rendering of objects on-screen.
-
 ### TerraScript
 
 The in-game scripting language of Terra.

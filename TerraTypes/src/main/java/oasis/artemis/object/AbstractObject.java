@@ -4,8 +4,10 @@ import oasis.artemis.physics.Location;
 import oasis.artemis.physics.Mass;
 import oasis.artemis.physics.Vector;
 import oasis.artemis.physics.Volume;
+import oasis.artemis.texture.Texture;
 
 import javax.annotation.Nonnull;
+import javax.annotation.Nullable;
 import javax.validation.constraints.Positive;
 import java.util.UUID;
 
@@ -204,5 +206,11 @@ public abstract class AbstractObject implements TObject {
     @Override
     public void setDragCoefficient(@Positive double dragCoefficient) {
         this.dragCoefficient = dragCoefficient;
+    }
+
+    @Nullable
+    @Override
+    public Texture getTexture() {
+        return null;
     }
 }

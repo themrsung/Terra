@@ -4,28 +4,33 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="128b8473-fae6-4bac-a232-81cbfd8e9124" name="Changes" comment="Comment typos">
-      <change afterPath="$PROJECT_DIR$/TerraGraphics/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TerraGraphics/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TerraGraphics/src/main/java/oasis/artemis/Sample.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TerraGraphics/src/main/java/oasis/artemis/TerraGraphics.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TerraGraphics/src/main/java/oasis/artemis/render/Triangle.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TerraGraphics/src/main/java/oasis/artemis/render/Vertex.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TerraGraphics/src/main/java/oasis/artemis/ui/DummyPanel.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TerraGraphics/src/main/java/oasis/artemis/ui/TFrame.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TerraGraphics/src/main/java/oasis/artemis/ui/TPanel.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TerraScript/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TerraScript/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TerraScript/src/main/java/oasis/artemis/script/TERRASCRIPT.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TerraScript/src/main/java/oasis/artemis/script/TerraScript.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TerraScript/src/main/java/oasis/artemis/script/component/TScriptComponent.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TerraScript/src/main/java/oasis/artemis/script/component/TScriptKeyword.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+    <list default="true" id="128b8473-fae6-4bac-a232-81cbfd8e9124" name="Changes" comment="Today's final commit. I'm going to bed.">
+      <change afterPath="$PROJECT_DIR$/TerraEngine/src/main/java/oasis/artemis/graphics/TerraGraphics.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TerraEngine/src/main/java/oasis/artemis/task/tick/TickTask.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TerraTypes/src/main/java/oasis/artemis/object/TransientObject.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TerraTypes/src/main/java/oasis/artemis/object/projectile/Bullet.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TerraTypes/src/main/java/oasis/artemis/object/projectile/Projectile.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TerraTypes/src/main/java/oasis/artemis/object/projectile/Shooter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TerraTypes/src/main/java/oasis/artemis/texture/Profile.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TerraTypes/src/main/java/oasis/artemis/texture/Texture.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/TerraEngine/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/TerraEngine/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/TerraEngine/src/main/java/oasis/artemis/TerraEngine.java" beforeDir="false" afterPath="$PROJECT_DIR$/TerraEngine/src/main/java/oasis/artemis/TerraEngine.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TerraEngine/src/main/java/oasis/artemis/state/State.java" beforeDir="false" afterPath="$PROJECT_DIR$/TerraEngine/src/main/java/oasis/artemis/state/State.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TerraGraphics/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TerraGraphics/pom.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TerraGraphics/src/main/java/oasis/artemis/Sample.java" beforeDir="false" afterPath="$PROJECT_DIR$/TerraEngine/src/main/java/oasis/artemis/graphics/Sample.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TerraGraphics/src/main/java/oasis/artemis/TerraGraphics.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TerraGraphics/src/main/java/oasis/artemis/render/Triangle.java" beforeDir="false" afterPath="$PROJECT_DIR$/TerraTypes/src/main/java/oasis/artemis/render/Triangle.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TerraGraphics/src/main/java/oasis/artemis/render/Vertex.java" beforeDir="false" afterPath="$PROJECT_DIR$/TerraTypes/src/main/java/oasis/artemis/render/Vertex.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TerraGraphics/src/main/java/oasis/artemis/ui/DummyPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/TerraEngine/src/main/java/oasis/artemis/ui/DummyPanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TerraGraphics/src/main/java/oasis/artemis/ui/TFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/TerraEngine/src/main/java/oasis/artemis/ui/TFrame.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TerraGraphics/src/main/java/oasis/artemis/ui/TPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/TerraEngine/src/main/java/oasis/artemis/ui/TPanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TerraScript/src/main/java/oasis/artemis/script/TERRASCRIPT.md" beforeDir="false" afterPath="$PROJECT_DIR$/TerraScript/src/main/java/oasis/artemis/script/TERRASCRIPT.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TerraTypes/src/main/java/oasis/artemis/object/AbstractObject.java" beforeDir="false" afterPath="$PROJECT_DIR$/TerraTypes/src/main/java/oasis/artemis/object/AbstractObject.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TerraTypes/src/main/java/oasis/artemis/object/TObject.java" beforeDir="false" afterPath="$PROJECT_DIR$/TerraTypes/src/main/java/oasis/artemis/object/TObject.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TerraTypes/src/main/java/oasis/artemis/util/Tickable.java" beforeDir="false" afterPath="$PROJECT_DIR$/TerraTypes/src/main/java/oasis/artemis/util/Tickable.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -37,9 +42,9 @@
       <list>
         <option value="module-info" />
         <option value="Interface" />
-        <option value="Class" />
         <option value="Record" />
         <option value="Enum" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -63,8 +68,9 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "git-widget-placeholder": "master",
     "jdk.selected.JAVA_MODULE": "openjdk-20",
-    "last_opened_file_path": "C:/Users/themr/OneDrive/바탕 화면/Projects/Terra/TerraTypes/src/main/java/oasis/artemis/string",
+    "last_opened_file_path": "C:/Users/themr/OneDrive/바탕 화면/Projects/Terra/TerraEngine/src/main/java/oasis/artemis/ui",
     "project.structure.last.edited": "Modules",
     "project.structure.proportion": "0.0",
     "project.structure.side.proportion": "0.0",
@@ -73,10 +79,13 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\themr\OneDrive\바탕 화면\Projects\Terra\TerraEngine\src\main\java\oasis\artemis\ui" />
+      <recent name="C:\Users\themr\OneDrive\바탕 화면\Projects\Terra\TerraTypes\src\main\java\oasis\artemis\render" />
       <recent name="C:\Users\themr\OneDrive\바탕 화면\Projects\Terra\TerraTypes\src\main\java\oasis\artemis\string" />
       <recent name="C:\Users\themr\OneDrive\바탕 화면\Projects\Terra\TerraTypes\src\main\java\oasis\artemis\physics" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="oasis.artemis.ui" />
       <recent name="oasis.artemis.task.physics" />
       <recent name="oasis.artemis.world" />
       <recent name="oasis.artemis.util" />
@@ -84,11 +93,11 @@
   </component>
   <component name="RunManager" selected="Application.TerraEngine">
     <configuration name="Sample" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="oasis.artemis.Sample" />
-      <module name="TerraGraphics" />
+      <option name="MAIN_CLASS_NAME" value="oasis.artemis.graphics.Sample" />
+      <module name="TerraEngine" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="oasis.artemis.*" />
+          <option name="PATTERN" value="oasis.artemis.graphics.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -114,7 +123,7 @@
       <module name="TerraEngine" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="oasis.artemis.*" />
+          <option name="PATTERN" value="oasis.artemis.graphics.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -127,7 +136,7 @@
       <module name="TerraGraphics" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="oasis.artemis.*" />
+          <option name="PATTERN" value="oasis.artemis.graphics.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -140,7 +149,7 @@
       <module name="TerraTypes" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="oasis.artemis.*" />
+          <option name="PATTERN" value="oasis.artemis.graphics.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -247,7 +256,15 @@
       <option name="project" value="LOCAL" />
       <updated>1689073580657</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="Today's final commit. I'm going to bed.">
+      <option name="closed" value="true" />
+      <created>1689085006682</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1689085006682</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -262,7 +279,8 @@
     <MESSAGE value="Added README" />
     <MESSAGE value="Reformat code &amp; Fixed TriLocation.Builder to throw IAE" />
     <MESSAGE value="Comment typos" />
-    <option name="LAST_COMMIT_MESSAGE" value="Comment typos" />
+    <MESSAGE value="Today's final commit. I'm going to bed." />
+    <option name="LAST_COMMIT_MESSAGE" value="Today's final commit. I'm going to bed." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

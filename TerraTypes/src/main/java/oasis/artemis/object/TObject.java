@@ -1,11 +1,14 @@
 package oasis.artemis.object;
 
 import oasis.artemis.physics.*;
+import oasis.artemis.texture.Texture;
 import oasis.artemis.util.Unique;
 import oasis.artemis.world.World;
 
 import javax.annotation.Nonnegative;
 import javax.annotation.Nonnull;
+import javax.annotation.Nullable;
+import javax.validation.constraints.Null;
 import javax.validation.constraints.Positive;
 import java.io.Serializable;
 
@@ -194,4 +197,9 @@ public interface TObject extends Unique, Serializable {
      */
     void setDragCoefficient(@Positive double coefficient);
 
+    //
+    // Rendering
+    //
+    @Nullable
+    Texture getTexture();
 }

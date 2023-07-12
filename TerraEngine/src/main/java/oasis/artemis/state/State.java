@@ -2,7 +2,9 @@ package oasis.artemis.state;
 
 import oasis.artemis.collection.list.TArray;
 import oasis.artemis.collection.list.TList;
+import oasis.artemis.util.Tickable;
 import oasis.artemis.world.World;
+import org.joda.time.Duration;
 
 import javax.annotation.Nonnull;
 
@@ -10,7 +12,7 @@ import javax.annotation.Nonnull;
  * <h2>State</h2>
  * <p>The running state of Terra.</p>
  */
-public class State {
+public class State implements Tickable {
     public State() {
         this.worlds = new TArray<>();
     }
@@ -61,6 +63,11 @@ public class State {
      */
     public void load() {
 
+    }
+
+    @Override
+    public void tick(@Nonnull Duration delta) {
+        worlds.forEach(w -> w.tick(delta));
     }
 
     //

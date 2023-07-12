@@ -27,6 +27,8 @@ Statements are declared by
 
 #### Syntax
 
+Basically Python without indents, or Java without semicolons and braces.
+
 **If statements**
 
 if (boolean):

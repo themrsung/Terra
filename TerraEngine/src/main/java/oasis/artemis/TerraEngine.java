@@ -1,10 +1,14 @@
 package oasis.artemis;
 
 import oasis.artemis.event.EventManager;
+import oasis.artemis.graphics.TerraGraphics;
 import oasis.artemis.listener.physics.CollisionListener;
 import oasis.artemis.object.ImmovableObject;
 import oasis.artemis.object.RealisticObject;
-import oasis.artemis.physics.*;
+import oasis.artemis.physics.Location;
+import oasis.artemis.physics.Mass;
+import oasis.artemis.physics.Metric;
+import oasis.artemis.physics.Volume;
 import oasis.artemis.scheduler.Scheduler;
 import oasis.artemis.state.State;
 import oasis.artemis.string.Text;
@@ -13,12 +17,11 @@ import oasis.artemis.task.physics.CollisionTask;
 import oasis.artemis.task.physics.GravityTask;
 import oasis.artemis.task.physics.MovementTask;
 import oasis.artemis.task.physics.ResistanceTask;
+import oasis.artemis.task.tick.TickTask;
 import oasis.artemis.world.RealisticWorld;
 import oasis.artemis.world.World;
 
 import javax.annotation.Nonnull;
-import java.awt.event.WindowAdapter;
-import java.awt.event.WindowEvent;
 import java.util.UUID;
 
 /**
@@ -37,6 +40,15 @@ public final class TerraEngine {
      */
     @Nonnull
     public static Scheduler getScheduler() {return scheduler;}
+
+    /**
+     * Gets the ticker instance.
+     * @return {@link TickTask}
+     */
+    @Nonnull
+    public static TickTask getTicker() {
+        return ticker;
+    }
 
     /**
      * Gets the event manager instance.
@@ -77,14 +89,12 @@ public final class TerraEngine {
      *
      * @param args Arguments
      */
-    public static void main(String[] args) {
+    public static void main(@Nonnull String[] args) {
         System.out.println("Hello world!");
 
-        // Register tasks
-        registerTasks();
-
-        // Register listeners
-        registerListeners();
+        //
+        // DEBUG
+        //
 
         // Testing out gravity
         final World world = new RealisticWorld(UUID.randomUUID(), new Text("World 1"));
@@ -94,12 +104,6 @@ public final class TerraEngine {
         person.setLocation(person.getLocation().plusY(555));
         person.setVolume(Volume.builder().xyz(Metric.centimeter(20), Metric.centimeter(170), Metric.centimeter(15)).build());
         person.setMass(new Mass(70, Mass.Unit.KILOGRAM));
-
-//        person.setVolume(new Volume(1000, 1, 1000));
-
-//        person.setVector(person.getVector().plusX(1));
-
-//        person.setVector(person.getVector().plusX(Metric.kilometersPerHour(300)));
 
         world.addObject(person);
         state.addWorld(world);
@@ -117,50 +121,32 @@ public final class TerraEngine {
         ground.setVolume(new Volume(Double.MAX_VALUE, 20000, Double.MAX_VALUE));
         world.addObject(ground);
 
-        // Vector test
-        Vector test1 = new Vector(1, 1, 1);
-        Vector test2 = new Vector(1, -1, -1);
-        Vector test3 = new Vector(-1, 1, 1);
-        Vector test4 = new Vector(-1, -1, -1);
-        Vector test5 = new Vector(-1, 0, 1);
+        //
+        // DEBUG
+        //
 
-        System.out.println("VECTOR TEST " + test1.getYaw());
-        System.out.println("VECTOR TEST " + test2.getYaw());
-        System.out.println("VECTOR TEST " + test3.getYaw());
-        System.out.println("VECTOR TEST " + test4.getYaw());
-        System.out.println("VECTOR TEST " + test5.getYaw());
+        start();
+    }
 
-        // Collision
-//        final RealisticObject o1 = new RealisticObject(UUID.randomUUID(), Location.builder().world(world).build());
-//        final RealisticObject o2 = new RealisticObject(UUID.randomUUID(), Location.builder().world(world).build());
-//
-//        o1.setMass(new Mass(10, Mass.Unit.KILOGRAM));
-//        o2.setMass(new Mass(10, Mass.Unit.KILOGRAM));
-//
-//        o1.setVolume(new Volume(10, 10, 10));
-//        o2.setVolume(new Volume(10, 10, 10));
-//
-//        o1.setLocation(o1.getLocation().plusX(100));
-//        o2.setLocation(o1.getLocation().plusX(-100));
-//
-//        o1.setVector(o1.getVector().plusX(Metric.kilometersPerHour(-60)));
-//        o2.setVector(o2.getVector().plusX(Metric.kilometersPerHour(60)));
-//
-//        world.addObject(o1);
-//        world.addObject(o2);
+    /**
+     * Starts the engine.
+     */
+    public static void start() {
+        // Register tasks
+        registerTasks();
+
+        // Register tickables
+        registerTickables();
+
+        // Register listeners
+        registerListeners();
 
         // Start scheduler
         startScheduler();
 
-        // Open viewport
-        graphics.openViewport();
+        // Start graphics
+        graphics.onEngineStarted();
 
-        graphics.getFrame().addWindowListener(new WindowAdapter() {
-            @Override
-            public void windowClosing(WindowEvent e) {
-                stop();
-            }
-        });
     }
 
     /**
@@ -168,7 +154,7 @@ public final class TerraEngine {
      */
     public static void stop() {
         scheduler.stop();
-        graphics.closeViewport();
+        graphics.onEngineStopped();
     }
 
     // Registers all tasks
@@ -178,11 +164,20 @@ public final class TerraEngine {
         scheduler.registerTask(new GravityTask());
         scheduler.registerTask(new MovementTask());
         scheduler.registerTask(new ResistanceTask());
+
+        // Tick
+        scheduler.registerTask(ticker);
     }
 
     // Registers all listeners
     private static void registerListeners() {
         eventManager.registerListener(new CollisionListener());
+    }
+
+    // Registers all tickables
+    private static void registerTickables() {
+        ticker.registerTickable(state);
+        ticker.registerTickable(graphics);
     }
 
     // Starts the scheduler
@@ -198,6 +193,9 @@ public final class TerraEngine {
 
     // State
     private static final State state = new State();
+
+    // Ticker
+    private static final TickTask ticker = new TickTask();
 
     // Graphics
     private static final TerraGraphics graphics = new TerraGraphics();
