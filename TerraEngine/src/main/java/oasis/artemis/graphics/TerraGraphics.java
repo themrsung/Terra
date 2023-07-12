@@ -1,9 +1,9 @@
 package oasis.artemis.graphics;
 
 import oasis.artemis.TerraEngine;
-import oasis.artemis.ui.DummyPanel;
-import oasis.artemis.ui.TFrame;
-import oasis.artemis.ui.TPanel;
+import oasis.artemis.graphics.component.CameraPanel;
+import oasis.artemis.graphics.component.TFrame;
+import oasis.artemis.graphics.component.TPanel;
 import oasis.artemis.util.Tickable;
 import org.joda.time.Duration;
 
@@ -43,7 +43,7 @@ public class TerraGraphics implements Tickable {
 
     @Override
     public void tick(@Nonnull Duration delta) {
-
+        frame.repaint();
     }
 
     /**
@@ -75,5 +75,5 @@ public class TerraGraphics implements Tickable {
     }
 
     private final TFrame frame = new TFrame("Terra");
-    private final TPanel panel = new DummyPanel();
+    private final TPanel panel = new CameraPanel();
 }

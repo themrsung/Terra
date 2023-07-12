@@ -1,4 +1,4 @@
-package oasis.artemis.ui;
+package oasis.artemis.graphics.component;
 
 import oasis.artemis.collection.list.TArray;
 import oasis.artemis.collection.list.TList;

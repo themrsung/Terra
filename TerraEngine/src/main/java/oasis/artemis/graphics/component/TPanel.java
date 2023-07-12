@@ -1,4 +1,4 @@
-package oasis.artemis.ui;
+package oasis.artemis.graphics.component;
 
 import javax.annotation.Nonnull;
 import javax.swing.*;

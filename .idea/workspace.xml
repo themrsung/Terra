@@ -4,16 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="128b8473-fae6-4bac-a232-81cbfd8e9124" name="Changes" comment="Integrated TerraGraphics to TerraEngine">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="128b8473-fae6-4bac-a232-81cbfd8e9124" name="Changes" comment="Removed Terra-bleScript">
+      <change afterPath="$PROJECT_DIR$/TerraEngine/src/main/java/oasis/artemis/graphics/ObjectGraphics.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TerraEngine/src/main/java/oasis/artemis/graphics/component/CameraPanel.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TerraScript/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/TerraScript/pom.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/TerraScript/src/main/java/oasis/artemis/script/TERRASCRIPT.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/TerraScript/src/main/java/oasis/artemis/script/TerraScript.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/TerraScript/src/main/java/oasis/artemis/script/component/TScriptComponent.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/TerraScript/src/main/java/oasis/artemis/script/component/TScriptKeyword.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TerraEngine/src/main/java/oasis/artemis/graphics/TerraGraphics.java" beforeDir="false" afterPath="$PROJECT_DIR$/TerraEngine/src/main/java/oasis/artemis/graphics/TerraGraphics.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TerraEngine/src/main/java/oasis/artemis/ui/DummyPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/TerraEngine/src/main/java/oasis/artemis/graphics/component/DummyPanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TerraEngine/src/main/java/oasis/artemis/ui/TFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/TerraEngine/src/main/java/oasis/artemis/graphics/component/TFrame.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TerraEngine/src/main/java/oasis/artemis/ui/TPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/TerraEngine/src/main/java/oasis/artemis/graphics/component/TPanel.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -255,7 +253,15 @@
       <option name="project" value="LOCAL" />
       <updated>1689141303749</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="Removed Terra-bleScript">
+      <option name="closed" value="true" />
+      <created>1689141354738</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1689141354738</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -272,7 +278,8 @@
     <MESSAGE value="Comment typos" />
     <MESSAGE value="Today's final commit. I'm going to bed." />
     <MESSAGE value="Integrated TerraGraphics to TerraEngine" />
-    <option name="LAST_COMMIT_MESSAGE" value="Integrated TerraGraphics to TerraEngine" />
+    <MESSAGE value="Removed Terra-bleScript" />
+    <option name="LAST_COMMIT_MESSAGE" value="Removed Terra-bleScript" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
