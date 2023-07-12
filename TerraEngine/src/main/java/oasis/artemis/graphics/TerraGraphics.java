@@ -48,6 +48,7 @@ public class TerraGraphics implements Tickable {
 
     /**
      * Ensures that graphics will be rendered after every tickable has been executed.
+     *
      * @return {@link oasis.artemis.util.Tickable.Priority#POST_MONITOR}
      */
     @Nonnull
@@ -58,6 +59,7 @@ public class TerraGraphics implements Tickable {
 
     /**
      * Gets the main frame of TerraGraphics.
+     *
      * @return Frame
      */
     @Nonnull
@@ -67,6 +69,7 @@ public class TerraGraphics implements Tickable {
 
     /**
      * Gets the main panel of TerraGraphics.
+     *
      * @return Panel
      */
     @Nonnull

@@ -8,7 +8,6 @@ import oasis.artemis.world.World;
 import javax.annotation.Nonnegative;
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
-import javax.validation.constraints.Null;
 import javax.validation.constraints.Positive;
 import java.io.Serializable;
 

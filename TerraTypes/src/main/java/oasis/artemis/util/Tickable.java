@@ -20,6 +20,7 @@ public interface Tickable {
 
     /**
      * Gets the priority of this tickable.
+     *
      * @return {@link Priority}
      */
     @Nonnull

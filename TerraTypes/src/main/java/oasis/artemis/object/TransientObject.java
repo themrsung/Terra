@@ -11,8 +11,8 @@ import java.util.UUID;
 /**
  * <h2>TransientObject</h2>
  * <p>
- *     An object designed to be not saved to data.
- *     For example, a bullet is a transient object.
+ * An object designed to be not saved to data.
+ * For example, a bullet is a transient object.
  * </p>
  */
 public class TransientObject extends AbstractObject {

@@ -8,6 +8,7 @@ import java.io.File;
 /**
  * <h2>Texture</h2>
  * <p>An in-game texture.</p>
+ *
  * @param textures Source file
  * @param profile
  */
