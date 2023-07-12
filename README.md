@@ -14,10 +14,3 @@ The operation code of Terra.
 ### TerraTypes
 
 The types and classes of Terra.
-
-### TerraScript
-
-The in-game scripting language of Terra.
-Terra supports user scripting.
-
-See [TERRASCRIPT.md](TerraScript%2Fsrc%2Fmain%2Fjava%2Foasis%2Fartemis%2Fscript%2FTERRASCRIPT.md)

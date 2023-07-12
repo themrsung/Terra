@@ -10,6 +10,7 @@
     <option name="ignoredFiles">
       <set>
         <option value="$PROJECT_DIR$/TerraGraphics/pom.xml" />
+        <option value="$PROJECT_DIR$/TerraScript/pom.xml" />
       </set>
     </option>
   </component>

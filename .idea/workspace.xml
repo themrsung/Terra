@@ -4,33 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="128b8473-fae6-4bac-a232-81cbfd8e9124" name="Changes" comment="Today's final commit. I'm going to bed.">
-      <change afterPath="$PROJECT_DIR$/TerraEngine/src/main/java/oasis/artemis/graphics/TerraGraphics.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TerraEngine/src/main/java/oasis/artemis/task/tick/TickTask.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TerraTypes/src/main/java/oasis/artemis/object/TransientObject.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TerraTypes/src/main/java/oasis/artemis/object/projectile/Bullet.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TerraTypes/src/main/java/oasis/artemis/object/projectile/Projectile.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TerraTypes/src/main/java/oasis/artemis/object/projectile/Shooter.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TerraTypes/src/main/java/oasis/artemis/texture/Profile.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TerraTypes/src/main/java/oasis/artemis/texture/Texture.java" afterDir="false" />
+    <list default="true" id="128b8473-fae6-4bac-a232-81cbfd8e9124" name="Changes" comment="Integrated TerraGraphics to TerraEngine">
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TerraEngine/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/TerraEngine/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TerraEngine/src/main/java/oasis/artemis/TerraEngine.java" beforeDir="false" afterPath="$PROJECT_DIR$/TerraEngine/src/main/java/oasis/artemis/TerraEngine.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TerraEngine/src/main/java/oasis/artemis/state/State.java" beforeDir="false" afterPath="$PROJECT_DIR$/TerraEngine/src/main/java/oasis/artemis/state/State.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TerraGraphics/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/TerraGraphics/pom.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/TerraGraphics/src/main/java/oasis/artemis/Sample.java" beforeDir="false" afterPath="$PROJECT_DIR$/TerraEngine/src/main/java/oasis/artemis/graphics/Sample.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TerraGraphics/src/main/java/oasis/artemis/TerraGraphics.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/TerraGraphics/src/main/java/oasis/artemis/render/Triangle.java" beforeDir="false" afterPath="$PROJECT_DIR$/TerraTypes/src/main/java/oasis/artemis/render/Triangle.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TerraGraphics/src/main/java/oasis/artemis/render/Vertex.java" beforeDir="false" afterPath="$PROJECT_DIR$/TerraTypes/src/main/java/oasis/artemis/render/Vertex.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TerraGraphics/src/main/java/oasis/artemis/ui/DummyPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/TerraEngine/src/main/java/oasis/artemis/ui/DummyPanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TerraGraphics/src/main/java/oasis/artemis/ui/TFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/TerraEngine/src/main/java/oasis/artemis/ui/TFrame.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TerraGraphics/src/main/java/oasis/artemis/ui/TPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/TerraEngine/src/main/java/oasis/artemis/ui/TPanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TerraScript/src/main/java/oasis/artemis/script/TERRASCRIPT.md" beforeDir="false" afterPath="$PROJECT_DIR$/TerraScript/src/main/java/oasis/artemis/script/TERRASCRIPT.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TerraTypes/src/main/java/oasis/artemis/object/AbstractObject.java" beforeDir="false" afterPath="$PROJECT_DIR$/TerraTypes/src/main/java/oasis/artemis/object/AbstractObject.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TerraTypes/src/main/java/oasis/artemis/object/TObject.java" beforeDir="false" afterPath="$PROJECT_DIR$/TerraTypes/src/main/java/oasis/artemis/object/TObject.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TerraTypes/src/main/java/oasis/artemis/util/Tickable.java" beforeDir="false" afterPath="$PROJECT_DIR$/TerraTypes/src/main/java/oasis/artemis/util/Tickable.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TerraScript/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TerraScript/pom.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TerraScript/src/main/java/oasis/artemis/script/TERRASCRIPT.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TerraScript/src/main/java/oasis/artemis/script/TerraScript.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TerraScript/src/main/java/oasis/artemis/script/component/TScriptComponent.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TerraScript/src/main/java/oasis/artemis/script/component/TScriptKeyword.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -264,7 +247,15 @@
       <option name="project" value="LOCAL" />
       <updated>1689085006682</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="Integrated TerraGraphics to TerraEngine">
+      <option name="closed" value="true" />
+      <created>1689141303749</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1689141303749</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -280,7 +271,8 @@
     <MESSAGE value="Reformat code &amp; Fixed TriLocation.Builder to throw IAE" />
     <MESSAGE value="Comment typos" />
     <MESSAGE value="Today's final commit. I'm going to bed." />
-    <option name="LAST_COMMIT_MESSAGE" value="Today's final commit. I'm going to bed." />
+    <MESSAGE value="Integrated TerraGraphics to TerraEngine" />
+    <option name="LAST_COMMIT_MESSAGE" value="Integrated TerraGraphics to TerraEngine" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
